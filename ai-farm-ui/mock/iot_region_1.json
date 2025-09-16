@@ -1,0 +1,29 @@
+{
+  "current": {
+    "moisture": {
+      "value": 65.2,
+      "unit": "%",
+      "status": "optimal"
+    },
+    "temperature": {
+      "value": 24.5,
+      "unit": "°C",
+      "status": "normal"
+    },
+    "ph": {
+      "value": 6.8,
+      "unit": "",
+      "status": "good"
+    },
+    "humidity": {
+      "value": 72.8,
+      "unit": "%",
+      "status": "normal"
+    }
+  },
+  "history": {
+    "moisture": [68, 66, 65, 64, 62, 62, 63, 65],
+    "temperature": [22, 23, 25, 26, 28, 27, 25, 24],
+    "timestamps": ["6:00", "8:00", "10:00", "12:00", "14:00", "16:00", "18:00", "20:00"]
+  }
+}

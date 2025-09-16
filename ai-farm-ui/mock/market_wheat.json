@@ -1,0 +1,52 @@
+{
+  "vendors": [
+    {
+      "name": "Sharma Agro Pvt Ltd",
+      "price": 2450,
+      "quantity": 500,
+      "location": "Punjab, India",
+      "quality": "Premium",
+      "rating": 4.8
+    },
+    {
+      "name": "Green Valley Farms",
+      "price": 2380,
+      "quantity": 750,
+      "location": "Haryana, India",
+      "quality": "Standard",
+      "rating": 4.6
+    },
+    {
+      "name": "Organic Harvest Co.",
+      "price": 2650,
+      "quantity": 300,
+      "location": "Uttar Pradesh, India",
+      "quality": "Organic",
+      "rating": 4.9
+    },
+    {
+      "name": "Modern Agri Solutions",
+      "price": 2320,
+      "quantity": 1000,
+      "location": "Rajasthan, India",
+      "quality": "Good",
+      "rating": 4.5
+    }
+  ],
+  "priceHistory": [
+    { "date": "Jan", "price": 2200 },
+    { "date": "Feb", "price": 2250 },
+    { "date": "Mar", "price": 2180 },
+    { "date": "Apr", "price": 2300 },
+    { "date": "May", "price": 2420 },
+    { "date": "Jun", "price": 2380 },
+    { "date": "Jul", "price": 2450 }
+  ],
+  "marketShare": {
+    "Wheat": 35,
+    "Rice": 28,
+    "Maize": 20,
+    "Sugarcane": 12,
+    "Others": 5
+  }
+}

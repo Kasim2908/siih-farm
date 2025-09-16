@@ -1,0 +1,40 @@
+{
+  "country": "India",
+  "lastUpdated": "2024-01-15T10:30:00Z",
+  "averageIoT": {
+    "moisture": 58.7,
+    "temperature": 26.8,
+    "ph": 6.5,
+    "nitrogen": 38.2,
+    "phosphorus": 19.8,
+    "potassium": 165.3,
+    "humidity": 68.4
+  },
+  "cropDistribution": {
+    "wheat": 32.5,
+    "rice": 28.3,
+    "sugarcane": 12.1,
+    "cotton": 8.7,
+    "maize": 6.9,
+    "others": 11.5
+  },
+  "averageYield": {
+    "wheat": 3.8,
+    "rice": 4.2,
+    "sugarcane": 78.5,
+    "cotton": 1.9,
+    "maize": 5.1
+  },
+  "marketPrices": {
+    "wheat": 2785,
+    "rice": 3250,
+    "sugarcane": 385,
+    "cotton": 6850,
+    "maize": 2150
+  },
+  "weatherAverages": {
+    "temperature": 26.8,
+    "humidity": 68.4,
+    "rainfall": 1150
+  }
+}

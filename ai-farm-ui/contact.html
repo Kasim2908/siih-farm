@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Farm Advisory</title>
+    <meta name="description" content="Get in touch with Farm Advisory for agricultural solutions, support, and partnership opportunities.">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body data-page="contact">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <a href="index.html" class="header__logo">
+                    <i class="fas fa-seedling"></i>
+                    <span>Farm Advisory</span>
+                </a>
+                
+                <nav>
+                    <ul class="header__nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="analysis.html">Analysis</a></li>
+                        <li><a href="marketplace.html">Marketplace</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html" class="active">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header__actions">
+                    <button class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="#" data-modal="join" class="btn btn-primary btn-sm">
+                        <i class="fas fa-user-plus"></i>
+                        Join Us
+                    </a>
+                </div>
+                
+                <button class="header__toggle" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <div class="hero__text">
+                        <h1>Contact Us</h1>
+                        <p>Ready to transform your agricultural operations? Get in touch with our team of experts for personalized solutions and support.</p>
+                        
+                        <div style="display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas fa-phone" style="color: var(--primary);"></i>
+                                <span>24/7 Support</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas fa-clock" style="color: var(--primary);"></i>
+                                <span>Quick Response</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas fa-users" style="color: var(--primary);"></i>
+                                <span>Expert Team</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: var(--space-12); border-radius: var(--radius-3xl); box-shadow: var(--shadow-2xl); color: white; display: inline-block; min-width: 300px;">
+                            <i class="fas fa-headset" style="font-size: 4rem; margin-bottom: var(--space-4); opacity: 0.9;"></i>
+                            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: var(--space-2); color: white;">24/7 Support</h3>
+                            <p style="opacity: 0.9; margin: 0;">Expert assistance when you need it</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Methods -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section__title">Get in Touch</h2>
+                
+                <div class="grid grid-3">
+                    <!-- Phone -->
+                    <div class="card text-center">
+                        <div style="width: 4rem; height: 4rem; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.5rem;">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3 class="card__title">Phone Support</h3>
+                        <p style="color: var(--gray-600); margin-bottom: 1rem;">
+                            Speak directly with our agricultural experts
+                        </p>
+                        <div style="font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">
+                            +91-xx-xxxx-xxxx
+                        </div>
+                        <div style="font-size: 0.875rem; color: var(--gray-500);">
+                            Mon-Fri: 9:00 AM - 6:00 PM IST
+                        </div>
+                        <button class="btn btn-primary mt-lg" onclick="window.open('tel:+91')">
+                            <i class="fas fa-phone"></i>
+                            Call Now
+                        </button>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="card text-center">
+                        <div style="width: 4rem; height: 4rem; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.5rem;">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="card__title">Email Support</h3>
+                        <p style="color: var(--gray-600); margin-bottom: 1rem;">
+                            Send us detailed queries and get comprehensive responses
+                        </p>
+                        <div style="font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">
+                            info@farmadvisory.in
+                        </div>
+                        <div style="font-size: 0.875rem; color: var(--gray-500);">
+                            Response within 24 hours
+                        </div>
+                        <button class="btn btn-primary mt-lg" onclick="window.open('mailto:info@farmadvisory.in')">
+                            <i class="fas fa-envelope"></i>
+                            Send Email
+                        </button>
+                    </div>
+
+                    <!-- Live Chat -->
+                    <div class="card text-center">
+                        <div style="width: 4rem; height: 4rem; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.5rem;">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3 class="card__title">Live Chat</h3>
+                        <p style="color: var(--gray-600); margin-bottom: 1rem;">
+                            Get instant answers to your questions
+                        </p>
+                        <div style="font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">
+                            Available 24/7
+                        </div>
+                        <div style="font-size: 0.875rem; color: var(--gray-500);">
+                            Average response: 2 minutes
+                        </div>
+                        <button class="btn btn-primary mt-lg" onclick="Utils.showToast('Live chat feature coming soon!', 'info')">
+                            <i class="fas fa-comments"></i>
+                            Start Chat
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form & Map -->
+        <section class="section" style="background: var(--gray-50);">
+            <div class="container">
+                <div class="grid grid-2">
+                    <!-- Contact Form -->
+                    <div class="card">
+                        <h3 class="card__title">Send us a Message</h3>
+                        <p style="color: var(--gray-600); margin-bottom: 1.5rem;">
+                            Fill out the form below and we'll get back to you as soon as possible.
+                        </p>
+                        
+                        <form id="contactForm">
+                            <div class="grid grid-2">
+                                <div class="form-group">
+                                    <label for="firstName" class="form-label">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" class="form-input" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="lastName" class="form-label">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" class="form-input" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" id="email" name="email" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="company" class="form-label">Company/Farm Name</label>
+                                <input type="text" id="company" name="company" class="form-input">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject" class="form-label">Subject *</label>
+                                <select id="subject" name="subject" class="form-select" required>
+                                    <option value="">Select a topic</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="demo">Request Demo</option>
+                                    <option value="pricing">Pricing Information</option>
+                                    <option value="partnership">Partnership Opportunity</option>
+                                    <option value="support">Technical Support</option>
+                                    <option value="feedback">Feedback</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message *</label>
+                                <textarea id="message" name="message" class="form-textarea" rows="5" required placeholder="Please provide details about your inquiry..."></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" name="newsletter" style="margin: 0;">
+                                    <span>Subscribe to our newsletter for updates and insights</span>
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                                <i class="fas fa-paper-plane"></i>
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Office Information & Map -->
+                    <div>
+                        <div class="card" style="margin-bottom: 2rem;">
+                            <h3 class="card__title">Our Office</h3>
+                            
+                            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                                <div style="display: flex; align-items: start; gap: 1rem;">
+                                    <div style="width: 2.5rem; height: 2.5rem; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; flex-shrink: 0;">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h4>Address</h4>
+                                        <p style="margin: 0; color: var(--gray-600);">
+                                            AI Farm Advisory Pvt Ltd<br>
+                                            123 Tech Park, Sector 18<br>
+                                            Gurugram, Haryana 122015<br>
+                                            India
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div style="width: 2.5rem; height: 2.5rem; background: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div>
+                                        <h4>Business Hours</h4>
+                                        <p style="margin: 0; color: var(--gray-600);">
+                                            Monday - Friday: 9:00 AM - 6:00 PM<br>
+                                            Saturday: 10:00 AM - 4:00 PM<br>
+                                            Sunday: Closed
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Map -->
+                        <!-- Map -->
+                        <div class="card ">
+                            <h3 class="card__title">Find Us</h3>
+                            <div id="contactMap" style="height: 300px; border-radius: var(--radius);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced FAQ Section -->
+        <section class="section">
+            <div class="container">
+                <h2 style="text-align: center; font-size: 2.5rem; font-weight: 800; margin-bottom: var(--space-12); background: linear-gradient(135deg, #10b981, #059669); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Frequently Asked Questions</h2>
+                
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div class="faq-item" style="margin-bottom: var(--space-4); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);">
+                        <button class="faq-question" style="width: 100%; padding: var(--space-6); background: var(--white); border: none; text-align: left; font-weight: 600; color: var(--gray-900); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: var(--transition);">
+                            <span>How does AI Farm Advisory work?</span>
+                            <i class="fas fa-chevron-down" style="transition: var(--transition); color: var(--primary);"></i>
+                        </button>
+                        <div class="faq-answer" style="display: none; padding: 0 var(--space-6) var(--space-6); background: var(--gray-50);">
+                            <p style="color: var(--gray-600); margin: 0; line-height: 1.6;">Our platform uses satellite imagery, IoT sensors, and machine learning algorithms to provide real-time insights about your crops, soil conditions, and market trends.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" style="margin-bottom: var(--space-4); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);">
+                        <button class="faq-question" style="width: 100%; padding: var(--space-6); background: var(--white); border: none; text-align: left; font-weight: 600; color: var(--gray-900); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: var(--transition);">
+                            <span>What crops do you support?</span>
+                            <i class="fas fa-chevron-down" style="transition: var(--transition); color: var(--primary);"></i>
+                        </button>
+                        <div class="faq-answer" style="display: none; padding: 0 var(--space-6) var(--space-6); background: var(--gray-50);">
+                            <p style="color: var(--gray-600); margin: 0; line-height: 1.6;">We support major crops including wheat, rice, maize, sugarcane, cotton, and various fruits and vegetables. Our system continuously expands to cover more varieties.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" style="margin-bottom: var(--space-4); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);">
+                        <button class="faq-question" style="width: 100%; padding: var(--space-6); background: var(--white); border: none; text-align: left; font-weight: 600; color: var(--gray-900); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: var(--transition);">
+                            <span>Is there a free trial available?</span>
+                            <i class="fas fa-chevron-down" style="transition: var(--transition); color: var(--primary);"></i>
+                        </button>
+                        <div class="faq-answer" style="display: none; padding: 0 var(--space-6) var(--space-6); background: var(--gray-50);">
+                            <p style="color: var(--gray-600); margin: 0; line-height: 1.6;">Yes, we offer a 30-day free trial for new users. This includes basic crop monitoring and weather forecasts for your farm.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" style="margin-bottom: var(--space-4); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);">
+                        <button class="faq-question" style="width: 100%; padding: var(--space-6); background: var(--white); border: none; text-align: left; font-weight: 600; color: var(--gray-900); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: var(--transition);">
+                            <span>How accurate are your predictions?</span>
+                            <i class="fas fa-chevron-down" style="transition: var(--transition); color: var(--primary);"></i>
+                        </button>
+                        <div class="faq-answer" style="display: none; padding: 0 var(--space-6) var(--space-6); background: var(--gray-50);">
+                            <p style="color: var(--gray-600); margin: 0; line-height: 1.6;">Our AI models achieve 92% accuracy on average for crop health predictions and 89% accuracy for yield forecasting, based on historical validation data.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+    </main>
+
+    <!-- Premium Footer -->
+    <footer style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%); color: #e2e8f0; padding: 5rem 0 2rem;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem;">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
+                        <div style="width: 3rem; height: 3rem; background: linear-gradient(135deg, #10b981, #059669); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(16,185,129,0.3);">
+                            <i class="fas fa-seedling" style="font-size: 1.5rem; color: white;"></i>
+                        </div>
+                        <h3 style="font-size: 1.75rem; font-weight: 800; background: linear-gradient(135deg, #10b981, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0;">Farm Advisory</h3>
+                    </div>
+                    <p style="margin-bottom: 2rem; color: #94a3b8; line-height: 1.7; font-size: 1.125rem;">Revolutionizing agriculture through AI-powered insights, real-time monitoring, and predictive analytics for sustainable farming.</p>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" style="width: 3rem; height: 3rem; background: linear-gradient(135deg, #1877f2, #42a5f5); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 15px rgba(24,119,242,0.3);" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" style="width: 3rem; height: 3rem; background: linear-gradient(135deg, #1da1f2, #42a5f5); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 15px rgba(29,161,242,0.3);" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" style="width: 3rem; height: 3rem; background: linear-gradient(135deg, #0077b5, #00a0dc); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 15px rgba(0,119,181,0.3);" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" style="width: 3rem; height: 3rem; background: linear-gradient(135deg, #e4405f, #fd5949); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 15px rgba(228,64,95,0.3);" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 1.5rem; color: white; font-weight: 700; font-size: 1.125rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-rocket" style="color: #10b981;"></i> Platform</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <li><a href="index.html" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-home" style="width: 1rem;"></i> Home</a></li>
+                        <li><a href="analysis.html" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-chart-line" style="width: 1rem;"></i> Analysis</a></li>
+                        <li><a href="marketplace.html" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-store" style="width: 1rem;"></i> Marketplace</a></li>
+                        <li><a href="services.html" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-cogs" style="width: 1rem;"></i> Services</a></li>
+                        <li><a href="contact.html" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-envelope" style="width: 1rem;"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 1.5rem; color: white; font-weight: 700; font-size: 1.125rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-brain" style="color: #3b82f6;"></i> Solutions</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-satellite" style="width: 1rem;"></i> Crop Monitoring</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-chart-bar" style="width: 1rem;"></i> Market Intelligence</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-cloud-sun" style="width: 1rem;"></i> Weather Forecasting</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-seedling" style="width: 1rem;"></i> Yield Prediction</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-bug" style="width: 1rem;"></i> Pest Detection</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 1.5rem; color: white; font-weight: 700; font-size: 1.125rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-headset" style="color: #f59e0b;"></i> Support</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-question-circle" style="width: 1rem;"></i> Help Center</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-book" style="width: 1rem;"></i> Documentation</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-code" style="width: 1rem;"></i> API Access</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-graduation-cap" style="width: 1rem;"></i> Training</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-users" style="width: 1rem;"></i> Community</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid rgba(148, 163, 184, 0.2); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <p style="margin: 0; color: #64748b; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-copyright" style="color: #10b981;"></i> 2025 Farm Advisory. All rights reserved.</p>
+                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                    <a href="#" style="color: #64748b; text-decoration: none; font-size: 0.875rem; display: flex; align-items: center; gap: 0.25rem;"><i class="fas fa-shield-alt" style="font-size: 0.75rem;"></i> Privacy</a>
+                    <a href="#" style="color: #64748b; text-decoration: none; font-size: 0.875rem; display: flex; align-items: center; gap: 0.25rem;"><i class="fas fa-file-contract" style="font-size: 0.75rem;"></i> Terms</a>
+                    <a href="#" style="color: #64748b; text-decoration: none; font-size: 0.875rem; display: flex; align-items: center; gap: 0.25rem;"><i class="fas fa-cookie-bite" style="font-size: 0.75rem;"></i> Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Join Modal -->
+    <div id="joinModal" class="modal" role="dialog" aria-labelledby="joinModalTitle" aria-hidden="true">
+        <div class="modal__content">
+            <div class="modal__header">
+                <h2 id="joinModalTitle" class="modal__title">Join Farm Advisory</h2>
+                <button class="modal__close" aria-label="Close modal">&times;</button>
+            </div>
+            <form id="joinForm">
+                <div class="form-group">
+                    <label for="joinName" class="form-label">Full Name *</label>
+                    <input type="text" id="joinName" name="name" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="joinEmail" class="form-label">Email Address *</label>
+                    <input type="email" id="joinEmail" name="email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="joinRole" class="form-label">Your Role *</label>
+                    <select id="joinRole" name="role" class="form-select" required>
+                        <option value="">Select your role</option>
+                        <option value="farmer">Farmer</option>
+                        <option value="market">Market Body</option>
+                        <option value="government">Government Official</option>
+                        <option value="researcher">Researcher</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <i class="fas fa-rocket"></i>
+                    Start Free Trial
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="./js/main.js"></script>
+    
+    <script>
+        // FAQ Dropdown functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                const isOpen = answer.style.display === 'block';
+                
+                // Close all other FAQs
+                document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+                document.querySelectorAll('.faq-question i').forEach(i => i.style.transform = 'rotate(0deg)');
+                document.querySelectorAll('.faq-question').forEach(q => q.style.background = 'var(--white)');
+                
+                // Toggle current FAQ
+                if (!isOpen) {
+                    answer.style.display = 'block';
+                    icon.style.transform = 'rotate(180deg)';
+                    question.style.background = 'var(--gray-50)';
+                }
+            });
+        });
+        
+        // Initialize contact map
+        document.addEventListener('DOMContentLoaded', function() {
+            const mapContainer = document.getElementById('contactMap');
+            if (mapContainer && typeof L !== 'undefined') {
+                const map = L.map('contactMap').setView([28.4595, 77.0266], 13);
+                
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors'
+                }).addTo(map);
+                
+                L.marker([28.4595, 77.0266]).addTo(map)
+                    .bindPopup('AI Farm Advisory Office<br>Gurugram, Haryana')
+                    .openPopup();
+            }
+        });
+    </script>
+</body>
+</html>

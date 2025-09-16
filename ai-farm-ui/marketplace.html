@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace - AI Farm Advisory</title>
+    <meta name="description" content="Real-time agricultural marketplace with price analytics, vendor listings, and market intelligence powered by AI.">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body data-page="marketplace">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <a href="index.html" class="header__logo">
+                    <i class="fas fa-seedling float"></i>
+                    <span>AI Farm Advisory</span>
+                </a>
+                
+                <nav>
+                    <ul class="header__nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="analysis.html">Analysis</a></li>
+                        <li><a href="marketplace.html" class="active">Marketplace</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header__actions">
+                    <button class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="#" data-modal="join" class="btn btn-primary btn-sm">
+                        <i class="fas fa-user-plus"></i>
+                        Join Us
+                    </a>
+                </div>
+                
+                <button class="header__toggle" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <div class="hero__text">
+                        <h1>Agricultural Marketplace</h1>
+                        <p>Real-time market intelligence with AI-powered price predictions and vendor analytics for smarter trading decisions.</p>
+                        
+                        <div style="display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas fa-chart-line" style="color: var(--primary);"></i>
+                                <span>Live Prices</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas fa-store" style="color: var(--primary);"></i>
+                                <span>150+ Vendors</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas fa-shield-alt" style="color: var(--primary);"></i>
+                                <span>Secure Trading</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: var(--space-12); border-radius: var(--radius-3xl); box-shadow: var(--shadow-2xl); color: white; display: inline-block; min-width: 300px;">
+                            <i class="fas fa-chart-bar" style="font-size: 4rem; margin-bottom: var(--space-4); opacity: 0.9;"></i>
+                            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: var(--space-2); color: white;">₹2,450</h3>
+                            <p style="opacity: 0.9; margin: 0;">Average Wheat Price Today</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters Section -->
+        <section class="section">
+            <div class="container">
+                <div class="marketplace-filters">
+                    <h3 style="margin-bottom: var(--space-6); color: var(--gray-900);">Market Filters</h3>
+                    <div class="grid grid-4">
+                        <div class="form-group mb-0">
+                            <label for="cropSelect" class="form-label" style="color: var(--gray-700);">Select Crop</label>
+                            <select id="cropSelect" class="form-select">
+                                <option value="wheat">Wheat</option>
+                                <option value="rice">Rice</option>
+                                <option value="maize">Maize</option>
+                                <option value="sugarcane">Sugarcane</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group mb-0">
+                            <label for="regionFilter" class="form-label" style="color: var(--gray-700);">Region</label>
+                            <select id="regionFilter" class="form-select">
+                                <option value="">All Regions</option>
+                                <option value="north">North India</option>
+                                <option value="south">South India</option>
+                                <option value="west">West India</option>
+                                <option value="east">East India</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group mb-0">
+                            <label for="priceRange" class="form-label" style="color: var(--gray-700);">Price Range</label>
+                            <select id="priceRange" class="form-select">
+                                <option value="">All Prices</option>
+                                <option value="low">₹2000-2500</option>
+                                <option value="medium">₹2500-3000</option>
+                                <option value="high">₹3000+</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group mb-0">
+                            <label for="timeframe" class="form-label" style="color: var(--gray-700);">Timeframe</label>
+                            <select id="timeframe" class="form-select">
+                                <option value="today">Today</option>
+                                <option value="week">This Week</option>
+                                <option value="month">This Month</option>
+                                <option value="quarter">This Quarter</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="grid grid-2 mt-8">
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6);">
+                            <h3 style="color: var(--gray-900); font-weight: 700;">Price Trends</h3>
+                            <button id="exportChart" class="btn btn-sm btn-outline">
+                                <i class="fas fa-download"></i>
+                                Export
+                            </button>
+                        </div>
+                        <div style="height: 350px; position: relative;">
+                            <canvas id="priceChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6);">
+                            <h3 style="color: var(--gray-900); font-weight: 700;">Market Share</h3>
+                            <div style="display: flex; gap: var(--space-2);">
+                                <span style="display: flex; align-items: center; gap: var(--space-1); font-size: 0.875rem; color: var(--gray-600);">
+                                    <div style="width: 12px; height: 12px; background: #059669; border-radius: 50%;"></div>
+                                    Wheat
+                                </span>
+                                <span style="display: flex; align-items: center; gap: var(--space-1); font-size: 0.875rem; color: var(--gray-600);">
+                                    <div style="width: 12px; height: 12px; background: #0ea5e9; border-radius: 50%;"></div>
+                                    Rice
+                                </span>
+                            </div>
+                        </div>
+                        <div style="height: 350px; position: relative;">
+                            <canvas id="marketShareChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vendor Listings -->
+                <div class="card mt-8">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6);">
+                        <h3 style="color: var(--gray-900); font-weight: 700;">
+                            <i class="fas fa-store"></i>
+                            Vendor Listings
+                        </h3>
+                        <button id="exportCSV" class="btn btn-primary">
+                            <i class="fas fa-file-csv"></i>
+                            Export CSV
+                        </button>
+                    </div>
+                    
+                    <div style="overflow-x: auto;">
+                        <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th style="color: var(--gray-900);">Vendor</th>
+                                    <th style="color: var(--gray-900);">Price (₹/quintal)</th>
+                                    <th style="color: var(--gray-900);">Quantity</th>
+                                    <th style="color: var(--gray-900);">Location</th>
+                                    <th style="color: var(--gray-900);">Quality</th>
+                                    <th style="color: var(--gray-900);">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div style="font-weight: 600; color: var(--gray-900);">Sharma Agro Pvt Ltd</div>
+                                        <div style="font-size: 0.875rem; color: var(--gray-600);">
+                                            <i class="fas fa-star" style="color: #f59e0b;"></i> 4.8/5 (124 reviews)
+                                        </div>
+                                    </td>
+                                    <td style="font-weight: 700; color: var(--primary-solid);">₹2,450</td>
+                                    <td style="color: var(--gray-700);">500 kg</td>
+                                    <td style="color: var(--gray-700);">Punjab, India</td>
+                                    <td>
+                                        <span style="background: var(--success); color: white; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600;">
+                                            Premium
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-primary" onclick="Utils.showToast('Contact feature coming soon!', 'info')">
+                                            <i class="fas fa-phone"></i>
+                                            Contact
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="font-weight: 600; color: var(--gray-900);">Green Valley Farms</div>
+                                        <div style="font-size: 0.875rem; color: var(--gray-600);">
+                                            <i class="fas fa-star" style="color: #f59e0b;"></i> 4.6/5 (89 reviews)
+                                        </div>
+                                    </td>
+                                    <td style="font-weight: 700; color: var(--primary-solid);">₹2,380</td>
+                                    <td style="color: var(--gray-700);">750 kg</td>
+                                    <td style="color: var(--gray-700);">Haryana, India</td>
+                                    <td>
+                                        <span style="background: var(--info); color: white; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600;">
+                                            Standard
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-primary" onclick="Utils.showToast('Contact feature coming soon!', 'info')">
+                                            <i class="fas fa-phone"></i>
+                                            Contact
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="font-weight: 600; color: var(--gray-900);">Organic Harvest Co.</div>
+                                        <div style="font-size: 0.875rem; color: var(--gray-600);">
+                                            <i class="fas fa-star" style="color: #f59e0b;"></i> 4.9/5 (156 reviews)
+                                        </div>
+                                    </td>
+                                    <td style="font-weight: 700; color: var(--primary-solid);">₹2,650</td>
+                                    <td style="color: var(--gray-700);">300 kg</td>
+                                    <td style="color: var(--gray-700);">Uttar Pradesh, India</td>
+                                    <td>
+                                        <span style="background: var(--success); color: white; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600;">
+                                            Organic
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-primary" onclick="Utils.showToast('Contact feature coming soon!', 'info')">
+                                            <i class="fas fa-phone"></i>
+                                            Contact
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="font-weight: 600; color: var(--gray-900);">Modern Agri Solutions</div>
+                                        <div style="font-size: 0.875rem; color: var(--gray-600);">
+                                            <i class="fas fa-star" style="color: #f59e0b;"></i> 4.5/5 (67 reviews)
+                                        </div>
+                                    </td>
+                                    <td style="font-weight: 700; color: var(--primary-solid);">₹2,320</td>
+                                    <td style="color: var(--gray-700);">1000 kg</td>
+                                    <td style="color: var(--gray-700);">Rajasthan, India</td>
+                                    <td>
+                                        <span style="background: var(--warning); color: white; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600;">
+                                            Good
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-primary" onclick="Utils.showToast('Contact feature coming soon!', 'info')">
+                                            <i class="fas fa-phone"></i>
+                                            Contact
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Market Insights -->
+                <div class="grid grid-3 mt-8">
+                    <div class="card">
+                        <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-4);">
+                            <div style="width: 3rem; height: 3rem; background: var(--gradient-primary); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; color: white;">
+                                <i class="fas fa-trending-up"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--gray-900); margin-bottom: var(--space-1);">Price Forecast</h4>
+                                <p style="color: var(--gray-600); margin: 0; font-size: 0.875rem;">Next 7 days</p>
+                            </div>
+                        </div>
+                        <div style="font-size: 2rem; font-weight: 700; color: var(--success); margin-bottom: var(--space-2);">↑ 3.2%</div>
+                        <p style="color: var(--gray-600); margin: 0;">Expected price increase due to seasonal demand and reduced supply from major producing regions.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-4);">
+                            <div style="width: 3rem; height: 3rem; background: var(--gradient-secondary); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; color: white;">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--gray-900); margin-bottom: var(--space-1);">Supply Status</h4>
+                                <p style="color: var(--gray-600); margin: 0; font-size: 0.875rem;">Current market</p>
+                            </div>
+                        </div>
+                        <div style="font-size: 2rem; font-weight: 700; color: var(--warning); margin-bottom: var(--space-2);">Moderate</div>
+                        <p style="color: var(--gray-600); margin: 0;">Supply levels are stable with adequate inventory to meet current demand patterns.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-4);">
+                            <div style="width: 3rem; height: 3rem; background: var(--gradient-accent); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; color: white;">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--gray-900); margin-bottom: var(--space-1);">Quality Index</h4>
+                                <p style="color: var(--gray-600); margin: 0; font-size: 0.875rem;">Average quality</p>
+                            </div>
+                        </div>
+                        <div style="font-size: 2rem; font-weight: 700; color: var(--success); margin-bottom: var(--space-2);">8.7/10</div>
+                        <p style="color: var(--gray-600); margin: 0;">High quality produce available with most vendors meeting premium standards.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+   <!-- Premium Footer -->
+    <footer style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%); color: #e2e8f0; padding: 5rem 0 2rem;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem;">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
+                        <div style="width: 3rem; height: 3rem; background: linear-gradient(135deg, #10b981, #059669); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(16,185,129,0.3);">
+                            <i class="fas fa-seedling" style="font-size: 1.5rem; color: white;"></i>
+                        </div>
+                        <h3 style="font-size: 1.75rem; font-weight: 800; background: linear-gradient(135deg, #10b981, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0;">Farm Advisory</h3>
+                    </div>
+                    <p style="margin-bottom: 2rem; color: #94a3b8; line-height: 1.7; font-size: 1.125rem;">Revolutionizing agriculture through AI-powered insights, real-time monitoring, and predictive analytics for sustainable farming.</p>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" style="width: 3rem; height: 3rem; background: linear-gradient(135deg, #1877f2, #42a5f5); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 15px rgba(24,119,242,0.3);" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" style="width: 3rem; height: 3rem; background: linear-gradient(135deg, #1da1f2, #42a5f5); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 15px rgba(29,161,242,0.3);" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" style="width: 3rem; height: 3rem; background: linear-gradient(135deg, #0077b5, #00a0dc); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 15px rgba(0,119,181,0.3);" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" style="width: 3rem; height: 3rem; background: linear-gradient(135deg, #e4405f, #fd5949); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 15px rgba(228,64,95,0.3);" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 1.5rem; color: white; font-weight: 700; font-size: 1.125rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-rocket" style="color: #10b981;"></i> Platform</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <li><a href="index.html" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-home" style="width: 1rem;"></i> Home</a></li>
+                        <li><a href="analysis.html" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-chart-line" style="width: 1rem;"></i> Analysis</a></li>
+                        <li><a href="marketplace.html" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-store" style="width: 1rem;"></i> Marketplace</a></li>
+                        <li><a href="services.html" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-cogs" style="width: 1rem;"></i> Services</a></li>
+                        <li><a href="contact.html" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-envelope" style="width: 1rem;"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 1.5rem; color: white; font-weight: 700; font-size: 1.125rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-brain" style="color: #3b82f6;"></i> Solutions</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-satellite" style="width: 1rem;"></i> Crop Monitoring</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-chart-bar" style="width: 1rem;"></i> Market Intelligence</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-cloud-sun" style="width: 1rem;"></i> Weather Forecasting</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-seedling" style="width: 1rem;"></i> Yield Prediction</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-bug" style="width: 1rem;"></i> Pest Detection</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 1.5rem; color: white; font-weight: 700; font-size: 1.125rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-headset" style="color: #f59e0b;"></i> Support</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-question-circle" style="width: 1rem;"></i> Help Center</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-book" style="width: 1rem;"></i> Documentation</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-code" style="width: 1rem;"></i> API Access</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-graduation-cap" style="width: 1rem;"></i> Training</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-users" style="width: 1rem;"></i> Community</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid rgba(148, 163, 184, 0.2); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <p style="margin: 0; color: #64748b; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-copyright" style="color: #10b981;"></i> 2025 Farm Advisory. All rights reserved.</p>
+                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                    <a href="#" style="color: #64748b; text-decoration: none; font-size: 0.875rem; display: flex; align-items: center; gap: 0.25rem;"><i class="fas fa-shield-alt" style="font-size: 0.75rem;"></i> Privacy</a>
+                    <a href="#" style="color: #64748b; text-decoration: none; font-size: 0.875rem; display: flex; align-items: center; gap: 0.25rem;"><i class="fas fa-file-contract" style="font-size: 0.75rem;"></i> Terms</a>
+                    <a href="#" style="color: #64748b; text-decoration: none; font-size: 0.875rem; display: flex; align-items: center; gap: 0.25rem;"><i class="fas fa-cookie-bite" style="font-size: 0.75rem;"></i> Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Join Modal -->
+    <div id="joinModal" class="modal" role="dialog" aria-labelledby="joinModalTitle" aria-hidden="true">
+        <div class="modal__content">
+            <div class="modal__header">
+                <h2 id="joinModalTitle" class="modal__title">Join AI Farm Advisory</h2>
+                <button class="modal__close" aria-label="Close modal">&times;</button>
+            </div>
+            <form id="joinForm">
+                <div class="form-group">
+                    <label for="joinName" class="form-label">Full Name *</label>
+                    <input type="text" id="joinName" name="name" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="joinEmail" class="form-label">Email Address *</label>
+                    <input type="email" id="joinEmail" name="email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="joinRole" class="form-label">Your Role *</label>
+                    <select id="joinRole" name="role" class="form-select" required>
+                        <option value="">Select your role</option>
+                        <option value="farmer">Farmer</option>
+                        <option value="market">Market Body</option>
+                        <option value="government">Government Official</option>
+                        <option value="researcher">Researcher</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/main.js"></script>
+    
+    <script>
+        // Create mock data for marketplace
+        const mockMarketData = {
+            vendors: [
+                { name: "Sharma Agro Pvt Ltd", price: 2450, quantity: 500, location: "Punjab, India", quality: "Premium", rating: 4.8 },
+                { name: "Green Valley Farms", price: 2380, quantity: 750, location: "Haryana, India", quality: "Standard", rating: 4.6 },
+                { name: "Organic Harvest Co.", price: 2650, quantity: 300, location: "Uttar Pradesh, India", quality: "Organic", rating: 4.9 },
+                { name: "Modern Agri Solutions", price: 2320, quantity: 1000, location: "Rajasthan, India", quality: "Good", rating: 4.5 }
+            ],
+            priceHistory: [
+                { date: "Jan", price: 2200 },
+                { date: "Feb", price: 2250 },
+                { date: "Mar", price: 2180 },
+                { date: "Apr", price: 2300 },
+                { date: "May", price: 2420 },
+                { date: "Jun", price: 2380 },
+                { date: "Jul", price: 2450 }
+            ],
+            marketShare: {
+                "Wheat": 35,
+                "Rice": 28,
+                "Maize": 20,
+                "Sugarcane": 12,
+                "Others": 5
+            }
+        };
+
+        // Initialize charts when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Price Chart with fixed configuration
+            const priceCtx = document.getElementById('priceChart');
+            if (priceCtx) {
+                const gradient = priceCtx.getContext('2d').createLinearGradient(0, 0, 0, 300);
+                gradient.addColorStop(0, 'rgba(5, 150, 105, 0.3)');
+                gradient.addColorStop(1, 'rgba(5, 150, 105, 0.05)');
+                
+                new Chart(priceCtx, {
+                    type: 'line',
+                    data: {
+                        labels: mockMarketData.priceHistory.map(d => d.date),
+                        datasets: [{
+                            label: 'Wheat Price (₹/quintal)',
+                            data: mockMarketData.priceHistory.map(d => d.price),
+                            borderColor: '#059669',
+                            backgroundColor: gradient,
+                            fill: true,
+                            tension: 0.4,
+                            borderWidth: 3,
+                            pointBackgroundColor: '#059669',
+                            pointBorderColor: '#ffffff',
+                            pointBorderWidth: 2,
+                            pointRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                                labels: {
+                                    color: '#374151',
+                                    font: { weight: 600 }
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                                titleColor: '#f8fafc',
+                                bodyColor: '#e2e8f0',
+                                cornerRadius: 12
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: false,
+                                min: 2000,
+                                grid: { color: 'rgba(148, 163, 184, 0.1)' },
+                                ticks: {
+                                    color: '#6b7280',
+                                    callback: function(value) {
+                                        return '₹' + value;
+                                    }
+                                }
+                            },
+                            x: {
+                                grid: { display: false },
+                                ticks: { color: '#6b7280' }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Market Share Chart with fixed configuration
+            const marketShareCtx = document.getElementById('marketShareChart');
+            if (marketShareCtx) {
+                new Chart(marketShareCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: Object.keys(mockMarketData.marketShare),
+                        datasets: [{
+                            data: Object.values(mockMarketData.marketShare),
+                            backgroundColor: [
+                                '#059669',
+                                '#0ea5e9', 
+                                '#f59e0b',
+                                '#ef4444',
+                                '#8b5cf6'
+                            ],
+                            borderWidth: 0,
+                            hoverOffset: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    color: '#374151',
+                                    font: { weight: 500 },
+                                    padding: 20,
+                                    usePointStyle: true
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                                titleColor: '#f8fafc',
+                                bodyColor: '#e2e8f0',
+                                cornerRadius: 12,
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.label + ': ' + context.parsed + '%';
+                                    }
+                                }
+                            }
+                        },
+                        cutout: '65%'
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

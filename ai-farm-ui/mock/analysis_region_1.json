@@ -1,0 +1,69 @@
+{
+  "regionId": "region_1",
+  "analysisDate": "2024-01-15T10:30:00Z",
+  "crop": {
+    "name": "Wheat",
+    "confidence": 89.2,
+    "variety": "HD-2967",
+    "stage": "Tillering",
+    "health": "Good"
+  },
+  "satelliteImage": {
+    "url": "https://via.placeholder.com/300x200/4a7c59/ffffff?text=Satellite+View",
+    "captureDate": "2024-01-14T12:00:00Z",
+    "resolution": "10m"
+  },
+  "fieldAnalysis": {
+    "area": 2.5,
+    "unit": "hectares",
+    "cropCoverage": 92.3,
+    "healthIndex": 0.78,
+    "stressAreas": 0.15
+  },
+  "predictions": {
+    "yieldEstimate": {
+      "value": 4.2,
+      "unit": "tons/hectare",
+      "confidence": 85.6
+    },
+    "harvestDate": "2024-04-15",
+    "qualityGrade": "A",
+    "marketValue": {
+      "min": 28500,
+      "max": 32000,
+      "currency": "INR",
+      "unit": "per ton"
+    }
+  },
+  "recommendations": [
+    {
+      "category": "Irrigation",
+      "priority": "medium",
+      "action": "Reduce irrigation frequency by 20%",
+      "reason": "Soil moisture levels are optimal"
+    },
+    {
+      "category": "Fertilizer",
+      "priority": "high", 
+      "action": "Apply phosphate fertilizer (50 kg/hectare)",
+      "reason": "Phosphorus deficiency detected"
+    },
+    {
+      "category": "Pest Control",
+      "priority": "low",
+      "action": "Monitor for aphids in next 2 weeks",
+      "reason": "Weather conditions favorable for pest activity"
+    }
+  ],
+  "weatherForecast": {
+    "next7Days": [
+      {"date": "2024-01-16", "temp": 25, "humidity": 70, "rainfall": 0},
+      {"date": "2024-01-17", "temp": 26, "humidity": 68, "rainfall": 2},
+      {"date": "2024-01-18", "temp": 24, "humidity": 75, "rainfall": 5},
+      {"date": "2024-01-19", "temp": 23, "humidity": 80, "rainfall": 12},
+      {"date": "2024-01-20", "temp": 22, "humidity": 85, "rainfall": 8},
+      {"date": "2024-01-21", "temp": 24, "humidity": 72, "rainfall": 0},
+      {"date": "2024-01-22", "temp": 26, "humidity": 65, "rainfall": 0}
+    ]
+  }
+}

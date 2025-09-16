@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Field Analysis - Farm Advisory</title>
+    <meta name="description" content="Real-time field analysis with satellite imagery, IoT sensor data, and AI-powered crop recommendations.">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body data-page="analysis">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <a href="index.html" class="header__logo">
+                    <i class="fas fa-seedling"></i>
+                    <span>Farm Advisory</span>
+                </a>
+                
+                <nav>
+                    <ul class="header__nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="analysis.html" class="active">Analysis</a></li>
+                        <li><a href="marketplace.html">Marketplace</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header__actions">
+                    <button class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="#" data-modal="join" class="btn btn-primary btn-sm">
+                        <i class="fas fa-user-plus"></i>
+                        Join Us
+                    </a>
+                </div>
+                
+                <button class="header__toggle" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <div class="hero__text">
+                        <h1>Field Analysis Dashboard</h1>
+                        <p>Real-time monitoring and AI-powered insights for precision agriculture with satellite imagery and IoT sensors.</p>
+                        
+                        <div style="display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas fa-satellite" style="color: var(--primary);"></i>
+                                <span>Satellite Data</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas fa-microchip" style="color: var(--primary);"></i>
+                                <span>IoT Sensors</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas fa-brain" style="color: var(--primary);"></i>
+                                <span>AI Insights</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: var(--space-12); border-radius: var(--radius-3xl); box-shadow: var(--shadow-2xl); color: white; display: inline-block; min-width: 300px;">
+                            <i class="fas fa-eye" style="font-size: 4rem; margin-bottom: var(--space-4); opacity: 0.9;"></i>
+                            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: var(--space-2); color: white;">Live Monitoring</h3>
+                            <p style="opacity: 0.9; margin: 0;">Real-time crop health analysis</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Filters Section -->
+        <section style="padding: var(--space-8) 0;">
+            <div class="container">
+                <div class="marketplace-filters">
+                    <h3 style="margin-bottom: var(--space-6); color: var(--gray-900);">Analysis Filters</h3>
+                    <div class="grid grid-4">
+                        <div class="form-group mb-0">
+                            <label for="regionSelect" class="form-label" style="color: var(--gray-700);">Select Region</label>
+                            <select id="regionSelect" class="form-select">
+                                <option value="">Choose a region...</option>
+                                <option value="north">North India</option>
+                                <option value="south">South India</option>
+                                <option value="west">West India</option>
+                                <option value="east">East India</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group mb-0">
+                            <label for="latInput" class="form-label" style="color: var(--gray-700);">Latitude</label>
+                            <input type="number" id="latInput" class="form-input" placeholder="20.5937" step="0.0001">
+                        </div>
+                        
+                        <div class="form-group mb-0">
+                            <label for="lonInput" class="form-label" style="color: var(--gray-700);">Longitude</label>
+                            <input type="number" id="lonInput" class="form-input" placeholder="78.9629" step="0.0001">
+                        </div>
+                        
+                        <div class="form-group mb-0">
+                            <label for="compareSelect" class="form-label" style="color: var(--gray-700);">Compare With</label>
+                            <select id="compareSelect" class="form-select">
+                                <option value="none">No Comparison</option>
+                                <option value="district">District Average</option>
+                                <option value="state">State Average</option>
+                                <option value="national">All India</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analysis Content -->
+        <section style="padding: var(--space-8) 0;">
+            <div class="container">
+                <div class="grid grid-2">
+                    <!-- Map & Satellite Panel -->
+                    <div class="card">
+                        <h3 class="card__title">
+                            <i class="fas fa-satellite"></i>
+                            Satellite & Map View
+                        </h3>
+                        <div id="map" style="height: 300px; margin-bottom: 1rem; border-radius: var(--radius);"></div>
+                        <div style="display: flex; gap: 1rem; align-items: center;">
+                            <img src="https://via.placeholder.com/120x80/16a34a/ffffff?text=Satellite" alt="Satellite image" style="border-radius: var(--radius);">
+                            <div>
+                                <h4>Detected Crop</h4>
+                                <div style="font-size: 1.125rem; font-weight: 600; color: var(--primary); margin: 0.5rem 0;">
+                                    Wheat (HD-2967)
+                                </div>
+                                <div style="color: var(--gray-600); font-size: 0.875rem;">
+                                    Confidence: 89% | Stage: Tillering | Health: Good
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- IoT Sensor Data -->
+                    <div class="card">
+                        <h3 class="card__title">
+                            <i class="fas fa-microchip"></i>
+                            Real-time IoT Sensors
+                            <span style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: var(--success); font-weight: normal;">
+                                <span class="pulse" style="width: 8px; height: 8px; background: var(--success); border-radius: 50%;"></span>
+                                Live Data
+                            </span>
+                        </h3>
+                        
+                        <div class="iot-cards">
+                            <div class="iot-card" data-iot="moisture">
+                                <div class="iot-value">65.2%</div>
+                                <div class="iot-label">Soil Moisture</div>
+                            </div>
+                            <div class="iot-card" data-iot="temperature">
+                                <div class="iot-value">24.5°C</div>
+                                <div class="iot-label">Temperature</div>
+                            </div>
+                            <div class="iot-card" data-iot="ph">
+                                <div class="iot-value">6.8</div>
+                                <div class="iot-label">pH Level</div>
+                            </div>
+                            <div class="iot-card" data-iot="humidity">
+                                <div class="iot-value">72.8%</div>
+                                <div class="iot-label">Humidity</div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.2); display: flex; justify-content: space-between; font-size: 0.875rem;">
+                            <span>✓ All sensors operational</span>
+                            <span>Last update: 2 min ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="grid grid-2 mt-8" style="margin-top: var(--space-16);">
+                    <div class="card">
+                        <h3 class="card__title">Moisture & Temperature Trends</h3>
+                        <div style="height: 300px;">
+                            <canvas id="moistureTempChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 class="card__title">NPK Levels</h3>
+                        <div style="height: 300px;">
+                            <canvas id="npkChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Insights & Recommendations -->
+                <div class="grid grid-2 mt-8">
+                    <div class="card">
+                        <h3 class="card__title">
+                            <i class="fas fa-brain"></i>
+                            AI Insights
+                        </h3>
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            <div style="display: flex; gap: 1rem; padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: var(--radius); border-left: 4px solid var(--success);">
+                                <div style="width: 2.5rem; height: 2.5rem; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                                    <i class="fas fa-thumbs-up"></i>
+                                </div>
+                                <div>
+                                    <h4>Optimal Growing Conditions</h4>
+                                    <p style="margin: 0.5rem 0; color: var(--gray-600);">Current soil moisture and temperature levels are ideal for wheat growth.</p>
+                                    <small style="color: var(--gray-500);">Confidence: 94%</small>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; gap: 1rem; padding: 1rem; background: rgba(245, 158, 11, 0.1); border-radius: var(--radius); border-left: 4px solid var(--warning);">
+                                <div style="width: 2.5rem; height: 2.5rem; background: var(--warning); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div>
+                                    <h4>Phosphorus Deficiency Detected</h4>
+                                    <p style="margin: 0.5rem 0; color: var(--gray-600);">Phosphorus levels are 15% below optimal range.</p>
+                                    <small style="color: var(--gray-500);">Confidence: 87%</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 class="card__title">
+                            <i class="fas fa-lightbulb"></i>
+                            Smart Recommendations
+                        </h3>
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            <div style="padding: 1rem; border: 1px solid var(--gray-200); border-radius: var(--radius);">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                                    <span style="background: var(--error); color: white; padding: 0.25rem 0.5rem; border-radius: var(--radius); font-size: 0.75rem;">High Priority</span>
+                                    <span style="background: var(--gray-100); color: var(--gray-600); padding: 0.25rem 0.5rem; border-radius: var(--radius); font-size: 0.75rem;">Fertilization</span>
+                                </div>
+                                <h4>Apply Phosphate Fertilizer</h4>
+                                <p style="margin: 0.5rem 0; color: var(--gray-600);">Apply 50 kg/hectare within the next 3-5 days.</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <button class="btn btn-sm btn-primary">Schedule Task</button>
+                                    <button class="btn btn-sm btn-outline">Learn More</button>
+                                </div>
+                            </div>
+                            
+                            <div style="padding: 1rem; border: 1px solid var(--gray-200); border-radius: var(--radius);">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                                    <span style="background: var(--warning); color: white; padding: 0.25rem 0.5rem; border-radius: var(--radius); font-size: 0.75rem;">Medium Priority</span>
+                                    <span style="background: var(--gray-100); color: var(--gray-600); padding: 0.25rem 0.5rem; border-radius: var(--radius); font-size: 0.75rem;">Irrigation</span>
+                                </div>
+                                <h4>Adjust Irrigation Schedule</h4>
+                                <p style="margin: 0.5rem 0; color: var(--gray-600);">Reduce watering frequency by 20% due to optimal soil moisture.</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <button class="btn btn-sm btn-primary">Apply Changes</button>
+                                    <button class="btn btn-sm btn-outline">View Schedule</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Table -->
+                <div class="card mt-8">
+                    <h3 class="card__title">
+                        <i class="fas fa-table"></i>
+                        Detailed Sensor Readings
+                    </h3>
+                    <div style="overflow-x: auto;">
+                        <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Current Value</th>
+                                    <th>Optimal Range</th>
+                                    <th>Status</th>
+                                    <th>Last Updated</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                            <i class="fas fa-tint" style="color: var(--info);"></i>
+                                            <span>Soil Moisture</span>
+                                        </div>
+                                    </td>
+                                    <td><strong>65.2%</strong></td>
+                                    <td>60-70%</td>
+                                    <td><span style="background: var(--success); color: white; padding: 0.25rem 0.5rem; border-radius: var(--radius); font-size: 0.75rem;">Optimal</span></td>
+                                    <td>2 min ago</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                            <i class="fas fa-thermometer-half" style="color: var(--warning);"></i>
+                                            <span>Temperature</span>
+                                        </div>
+                                    </td>
+                                    <td><strong>24.5°C</strong></td>
+                                    <td>20-28°C</td>
+                                    <td><span style="background: var(--info); color: white; padding: 0.25rem 0.5rem; border-radius: var(--radius); font-size: 0.75rem;">Normal</span></td>
+                                    <td>2 min ago</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                            <i class="fas fa-flask" style="color: var(--success);"></i>
+                                            <span>pH Level</span>
+                                        </div>
+                                    </td>
+                                    <td><strong>6.8</strong></td>
+                                    <td>6.0-7.5</td>
+                                    <td><span style="background: var(--success); color: white; padding: 0.25rem 0.5rem; border-radius: var(--radius); font-size: 0.75rem;">Good</span></td>
+                                    <td>5 min ago</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                            <i class="fas fa-seedling" style="color: var(--error);"></i>
+                                            <span>Phosphorus (P)</span>
+                                        </div>
+                                    </td>
+                                    <td><strong>23.1 mg/kg</strong></td>
+                                    <td>25-35 mg/kg</td>
+                                    <td><span style="background: var(--error); color: white; padding: 0.25rem 0.5rem; border-radius: var(--radius); font-size: 0.75rem;">Low</span></td>
+                                    <td>1 hour ago</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+   <!-- Premium Footer -->
+    <footer style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%); color: #e2e8f0; padding: 5rem 0 2rem;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem;">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
+                        <div style="width: 3rem; height: 3rem; background: linear-gradient(135deg, #10b981, #059669); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(16,185,129,0.3);">
+                            <i class="fas fa-seedling" style="font-size: 1.5rem; color: white;"></i>
+                        </div>
+                        <h3 style="font-size: 1.75rem; font-weight: 800; background: linear-gradient(135deg, #10b981, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0;">Farm Advisory</h3>
+                    </div>
+                    <p style="margin-bottom: 2rem; color: #94a3b8; line-height: 1.7; font-size: 1.125rem;">Revolutionizing agriculture through AI-powered insights, real-time monitoring, and predictive analytics for sustainable farming.</p>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" style="width: 3rem; height: 3rem; background: linear-gradient(135deg, #1877f2, #42a5f5); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 15px rgba(24,119,242,0.3);" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" style="width: 3rem; height: 3rem; background: linear-gradient(135deg, #1da1f2, #42a5f5); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 15px rgba(29,161,242,0.3);" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" style="width: 3rem; height: 3rem; background: linear-gradient(135deg, #0077b5, #00a0dc); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 15px rgba(0,119,181,0.3);" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" style="width: 3rem; height: 3rem; background: linear-gradient(135deg, #e4405f, #fd5949); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 15px rgba(228,64,95,0.3);" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 1.5rem; color: white; font-weight: 700; font-size: 1.125rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-rocket" style="color: #10b981;"></i> Platform</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <li><a href="index.html" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-home" style="width: 1rem;"></i> Home</a></li>
+                        <li><a href="analysis.html" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-chart-line" style="width: 1rem;"></i> Analysis</a></li>
+                        <li><a href="marketplace.html" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-store" style="width: 1rem;"></i> Marketplace</a></li>
+                        <li><a href="services.html" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-cogs" style="width: 1rem;"></i> Services</a></li>
+                        <li><a href="contact.html" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-envelope" style="width: 1rem;"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 1.5rem; color: white; font-weight: 700; font-size: 1.125rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-brain" style="color: #3b82f6;"></i> Solutions</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-satellite" style="width: 1rem;"></i> Crop Monitoring</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-chart-bar" style="width: 1rem;"></i> Market Intelligence</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-cloud-sun" style="width: 1rem;"></i> Weather Forecasting</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-seedling" style="width: 1rem;"></i> Yield Prediction</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-bug" style="width: 1rem;"></i> Pest Detection</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 1.5rem; color: white; font-weight: 700; font-size: 1.125rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-headset" style="color: #f59e0b;"></i> Support</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-question-circle" style="width: 1rem;"></i> Help Center</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-book" style="width: 1rem;"></i> Documentation</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-code" style="width: 1rem;"></i> API Access</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-graduation-cap" style="width: 1rem;"></i> Training</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-users" style="width: 1rem;"></i> Community</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid rgba(148, 163, 184, 0.2); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <p style="margin: 0; color: #64748b; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-copyright" style="color: #10b981;"></i> 2025 Farm Advisory. All rights reserved.</p>
+                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                    <a href="#" style="color: #64748b; text-decoration: none; font-size: 0.875rem; display: flex; align-items: center; gap: 0.25rem;"><i class="fas fa-shield-alt" style="font-size: 0.75rem;"></i> Privacy</a>
+                    <a href="#" style="color: #64748b; text-decoration: none; font-size: 0.875rem; display: flex; align-items: center; gap: 0.25rem;"><i class="fas fa-file-contract" style="font-size: 0.75rem;"></i> Terms</a>
+                    <a href="#" style="color: #64748b; text-decoration: none; font-size: 0.875rem; display: flex; align-items: center; gap: 0.25rem;"><i class="fas fa-cookie-bite" style="font-size: 0.75rem;"></i> Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Join Modal -->
+    <div id="joinModal" class="modal" role="dialog" aria-labelledby="joinModalTitle" aria-hidden="true">
+        <div class="modal__content">
+            <div class="modal__header">
+                <h2 id="joinModalTitle" class="modal__title">Join Farm Advisory</h2>
+                <button class="modal__close" aria-label="Close modal">&times;</button>
+            </div>
+            <form id="joinForm">
+                <div class="form-group">
+                    <label for="joinName" class="form-label">Full Name *</label>
+                    <input type="text" id="joinName" name="name" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="joinEmail" class="form-label">Email Address *</label>
+                    <input type="email" id="joinEmail" name="email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="joinRole" class="form-label">Your Role *</label>
+                    <select id="joinRole" name="role" class="form-select" required>
+                        <option value="">Select your role</option>
+                        <option value="farmer">Farmer</option>
+                        <option value="market">Market Body</option>
+                        <option value="government">Government Official</option>
+                        <option value="researcher">Researcher</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

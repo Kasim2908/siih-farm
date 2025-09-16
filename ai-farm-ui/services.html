@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Farm Advisory</title>
+    <meta name="description" content="Comprehensive AI-powered agricultural services including crop monitoring, market intelligence, and precision farming solutions.">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body data-page="services">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <a href="index.html" class="header__logo">
+                    <i class="fas fa-seedling"></i>
+                    <span>Farm Advisory</span>
+                </a>
+                
+                <nav>
+                    <ul class="header__nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="analysis.html">Analysis</a></li>
+                        <li><a href="marketplace.html">Marketplace</a></li>
+                        <li><a href="services.html" class="active">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header__actions">
+                    <button class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="#" data-modal="join" class="btn btn-primary btn-sm">
+                        <i class="fas fa-user-plus"></i>
+                        Join Us
+                    </a>
+                </div>
+                
+                <button class="header__toggle" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <div class="hero__text">
+                        <h1>Our Services</h1>
+                        <p>Comprehensive AI-powered agricultural solutions designed to maximize yield, reduce costs, and optimize every aspect of your farming operations.</p>
+                        
+                        <div style="display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas fa-satellite" style="color: var(--primary);"></i>
+                                <span>Smart Monitoring</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas fa-brain" style="color: var(--primary);"></i>
+                                <span>AI Insights</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas fa-headset" style="color: var(--primary);"></i>
+                                <span>24/7 Support</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: var(--space-12); border-radius: var(--radius-3xl); box-shadow: var(--shadow-2xl); color: white; display: inline-block; min-width: 300px;">
+                            <i class="fas fa-cogs" style="font-size: 4rem; margin-bottom: var(--space-4); opacity: 0.9;"></i>
+                            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: var(--space-2); color: white;">4+ Services</h3>
+                            <p style="opacity: 0.9; margin: 0;">Complete agricultural solutions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Overview -->
+        <section id="services" class="section" style="padding: 5rem 0;">
+            <div class="container">
+                <div class="text-center animate-fade-in" style="text-align: center; margin-bottom: 5rem;">
+                    <h2 class="section__title" style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem; color: #1f2937;">
+                        Our Core Services
+                    </h2>
+                    <p style="font-size: 1.125rem; color: #6b7280; max-width: 600px; margin: 0 auto;">
+                        Cutting-edge AI solutions tailored for every aspect of modern agriculture
+                    </p>
+                </div>
+                
+                <!-- Service Cards Grid -->
+                <div class="grid grid-2" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+                    
+                    <!-- Crop Monitoring -->
+                    <div class="card animate-slide-up service-card" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); padding: 2rem; border-radius: 1.5rem; border: 1px solid #bbf7d0; position: relative; overflow: hidden; transition: all 0.3s ease; animation-delay: 0.1s;">
+                        <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: linear-gradient(135deg, #10b981, #059669); border-radius: 50%; opacity: 0.1;"></div>
+                        
+                        <div style="position: relative; z-index: 1;">
+                            <div style="width: 4rem; height: 4rem; background: linear-gradient(135deg, #10b981, #059669); border-radius: 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);">
+                                <i class="fas fa-satellite"></i>
+                            </div>
+                            
+                            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: #1f2937;">
+                                Smart Crop Monitoring
+                            </h3>
+                            
+                            <p style="color: #6b7280; margin-bottom: 1.5rem; line-height: 1.6;">
+                                Advanced satellite and drone-based monitoring with AI-powered analysis for early detection of crop health issues.
+                            </p>
+                            
+                            <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem;">
+                                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                    <div style="width: 1.5rem; height: 1.5rem; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem;">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <span style="color: #374151;">Real-time satellite imagery</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                    <div style="width: 1.5rem; height: 1.5rem; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem;">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <span style="color: #374151;">Crop health assessment</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                    <div style="width: 1.5rem; height: 1.5rem; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem;">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <span style="color: #374151;">Yield prediction models</span>
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn-primary" style="width: 100%; justify-content: center; background: #10b981; color: white; padding: 0.75rem; border: none; border-radius: 0.5rem; cursor: pointer;">
+                                <i class="fas fa-arrow-right"></i>
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Market Intelligence -->
+                    <div class="card animate-slide-up service-card" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); padding: 2rem; border-radius: 1.5rem; border: 1px solid #bbf7d0; position: relative; overflow: hidden; transition: all 0.3s ease; animation-delay: 0.2s;">
+                        <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: linear-gradient(135deg, #10b981, #059669); border-radius: 50%; opacity: 0.1;"></div>
+                        
+                        <div style="position: relative; z-index: 1;">
+                            <div style="width: 4rem; height: 4rem; background: linear-gradient(135deg, #10b981, #059669); border-radius: 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            
+                            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: #1f2937;">
+                                Market Intelligence
+                            </h3>
+                            
+                            <p style="color: #6b7280; margin-bottom: 1.5rem; line-height: 1.6;">
+                                Comprehensive market analysis and price forecasting to help you make informed selling decisions.
+                            </p>
+                            
+                            <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem;">
+                                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                    <div style="width: 1.5rem; height: 1.5rem; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem;">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <span style="color: #374151;">Real-time price tracking</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                    <div style="width: 1.5rem; height: 1.5rem; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem;">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <span style="color: #374151;">Market trend analysis</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                    <div style="width: 1.5rem; height: 1.5rem; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem;">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <span style="color: #374151;">Demand forecasting</span>
+                                </div>
+                            </div>
+                            
+                            <button style="width: 100%; justify-content: center; background: #10b981; color: white; padding: 0.75rem; border: none; border-radius: 0.5rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease;">
+                                <i class="fas fa-arrow-right"></i>
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Weather Intelligence -->
+                    <div class="card animate-slide-up service-card" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); padding: 2rem; border-radius: 1.5rem; border: 1px solid #bbf7d0; position: relative; overflow: hidden; transition: all 0.3s ease; animation-delay: 0.3s;">
+                        <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: linear-gradient(135deg, #10b981, #059669); border-radius: 50%; opacity: 0.1;"></div>
+                        
+                        <div style="position: relative; z-index: 1;">
+                            <div style="width: 4rem; height: 4rem; background: linear-gradient(135deg, #10b981, #059669); border-radius: 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);">
+                                <i class="fas fa-cloud-sun"></i>
+                            </div>
+                            
+                            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: #1f2937;">
+                                Weather Intelligence
+                            </h3>
+                            
+                            <p style="color: #6b7280; margin-bottom: 1.5rem; line-height: 1.6;">
+                                Hyper-local weather predictions and agricultural advisories tailored to your specific location.
+                            </p>
+                            
+                            <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem;">
+                                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                    <div style="width: 1.5rem; height: 1.5rem; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem;">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <span style="color: #374151;">Hyper-local forecasts</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                    <div style="width: 1.5rem; height: 1.5rem; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem;">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <span style="color: #374151;">Extreme weather alerts</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                    <div style="width: 1.5rem; height: 1.5rem; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem;">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <span style="color: #374151;">Irrigation recommendations</span>
+                                </div>
+                            </div>
+                            
+                            <button style="width: 100%; justify-content: center; background: #10b981; color: white; padding: 0.75rem; border: none; border-radius: 0.5rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease;">
+                                <i class="fas fa-arrow-right"></i>
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="section services-pricing" style="background: #f9fafb; padding: 5rem 0;">
+            <div class="container">
+                <div class="text-center animate-fade-in" style="text-align: center; margin-bottom: 5rem;">
+                    <h2 class="section__title" style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem; color: #1f2937;">
+                        Choose Our Plan
+                    </h2>
+                    <p style="font-size: 1.125rem; color: #6b7280;">
+                        Flexible pricing plans designed for farms of all sizes
+                    </p>
+                </div>
+                
+                <div class="grid grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;">
+                    
+                    <!-- Basic Plan -->
+                    <div class="card animate-slide-up pricing-card" style="background: white; padding: 2rem; border-radius: 1.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); border: 1px solid #e5e7eb; animation-delay: 0.1s;">
+                        <div style="text-align: center; margin-bottom: 2rem;">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: #1f2937;">Basic</h3>
+                            <div class="price-text" style="font-size: 3rem; font-weight: 900; color: #10b981; margin-bottom: 0.5rem;">
+                                ₹2,999
+                            </div>
+                            <div style="color: #6b7280;">per month</div>
+                            <p style="margin-top: 1rem; color: #6b7280;">Perfect for small farms up to 5 acres</p>
+                        </div>
+                        
+                        <div style="margin-bottom: 2rem;">
+                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                                <i class="fas fa-check" style="color: #10b981;"></i>
+                                <span>Basic crop monitoring</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                                <i class="fas fa-check" style="color: #10b981;"></i>
+                                <span>Weather forecasts</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                                <i class="fas fa-check" style="color: #10b981;"></i>
+                                <span>Market price alerts</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                                <i class="fas fa-check" style="color: #10b981;"></i>
+                                <span>Email support</span>
+                            </div>
+                        </div>
+                        
+                        <button style="width: 100%; justify-content: center; background: transparent; color: #10b981; padding: 0.75rem; border: 2px solid #10b981; border-radius: 0.5rem; cursor: pointer;">
+                            Get Started
+                        </button>
+                    </div>
+
+                    <!-- Professional Plan -->
+                    <div class="card animate-slide-up" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: 2rem; border-radius: 1.5rem; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); color: white; position: relative; transform: scale(1.05); animation-delay: 0.2s;">
+                        <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: white; color: #10b981; padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 0.875rem; font-weight: 600;">
+                            Most Popular
+                        </div>
+                        
+                        <div style="text-align: center; margin-bottom: 2rem;">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: white;">Professional</h3>
+                            <div style="font-size: 3rem; font-weight: 900; color: white; margin-bottom: 0.5rem;">
+                                ₹7,999
+                            </div>
+                            <div style="opacity: 0.9;">per month</div>
+                            <p style="margin-top: 1rem; opacity: 0.9;">Ideal for medium farms up to 25 acres</p>
+                        </div>
+                        
+                        <div style="margin-bottom: 2rem;">
+                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                                <i class="fas fa-check" style="color: white;"></i>
+                                <span>Advanced crop monitoring</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                                <i class="fas fa-check" style="color: white;"></i>
+                                <span>IoT sensor integration</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                                <i class="fas fa-check" style="color: white;"></i>
+                                <span>Precision farming tools</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                                <i class="fas fa-check" style="color: white;"></i>
+                                <span>Priority phone support</span>
+                            </div>
+                        </div>
+                        
+                        <button style="width: 100%; justify-content: center; background: white; color: #10b981; padding: 0.75rem; border: none; border-radius: 0.5rem; cursor: pointer; font-weight: 600;">
+                            Get Started
+                        </button>
+                    </div>
+
+                    <!-- Enterprise Plan -->
+                    <div class="card animate-slide-up pricing-card" style="background: white; padding: 2rem; border-radius: 1.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); border: 1px solid #e5e7eb; animation-delay: 0.3s;">
+                        <div style="text-align: center; margin-bottom: 2rem;">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: #1f2937;">Enterprise</h3>
+                            <div class="price-text" style="font-size: 3rem; font-weight: 900; color: #10b981; margin-bottom: 0.5rem;">
+                                Custom
+                            </div>
+                            <div style="color: #6b7280;">pricing</div>
+                            <p style="margin-top: 1rem; color: #6b7280;">For large farms and agribusiness</p>
+                        </div>
+                        
+                        <div style="margin-bottom: 2rem;">
+                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                                <i class="fas fa-check" style="color: #10b981;"></i>
+                                <span>Full suite of services</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                                <i class="fas fa-check" style="color: #10b981;"></i>
+                                <span>Custom integrations</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                                <i class="fas fa-check" style="color: #10b981;"></i>
+                                <span>Dedicated account manager</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                                <i class="fas fa-check" style="color: #10b981;"></i>
+                                <span>24/7 support</span>
+                            </div>
+                        </div>
+                        
+                        <button style="width: 100%; justify-content: center; background: transparent; color: #10b981; padding: 0.75rem; border: 2px solid #10b981; border-radius: 0.5rem; cursor: pointer;">
+                            Contact Sales
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 5rem 0;">
+            <div class="container text-center" style="text-align: center;">
+                <h2 class="animate-fade-in" style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem; color: white;">
+                    Ready to Transform Your Farm?
+                </h2>
+                <p class="animate-slide-up" style="font-size: 1.25rem; margin-bottom: 3rem; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto; animation-delay: 0.2s;">
+                    Join thousands of farmers who trust Farm Advisory for their agricultural success
+                </p>
+                
+                <div class="animate-slide-up" style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; animation-delay: 0.4s;">
+                    <a href="contact.html" class="btn btn-lg" style="background: white; color: #10b981; padding: 1rem 2rem; font-size: 1.125rem; text-decoration: none; border-radius: 0.75rem; font-weight: 600;">
+                        <i class="fas fa-phone"></i>
+                        Contact Sales
+                    </a>
+                    <a href="#" data-modal="join" class="btn btn-secondary btn-lg" style="background: rgba(255,255,255,0.1); border: 2px solid white; color: white; padding: 1rem 2rem; font-size: 1.125rem; text-decoration: none; border-radius: 0.75rem;">
+                        <i class="fas fa-rocket"></i>
+                        Start Free Trial
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Premium Footer -->
+    <footer style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%); color: #e2e8f0; padding: 5rem 0 2rem;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem;">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
+                        <div style="width: 3rem; height: 3rem; background: linear-gradient(135deg, #10b981, #059669); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(16,185,129,0.3);">
+                            <i class="fas fa-seedling" style="font-size: 1.5rem; color: white;"></i>
+                        </div>
+                        <h3 style="font-size: 1.75rem; font-weight: 800; background: linear-gradient(135deg, #10b981, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0;">Farm Advisory</h3>
+                    </div>
+                    <p style="margin-bottom: 2rem; color: #94a3b8; line-height: 1.7; font-size: 1.125rem;">Revolutionizing agriculture through AI-powered insights, real-time monitoring, and predictive analytics for sustainable farming.</p>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" style="width: 3rem; height: 3rem; background: linear-gradient(135deg, #1877f2, #42a5f5); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 15px rgba(24,119,242,0.3);" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" style="width: 3rem; height: 3rem; background: linear-gradient(135deg, #1da1f2, #42a5f5); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 15px rgba(29,161,242,0.3);" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" style="width: 3rem; height: 3rem; background: linear-gradient(135deg, #0077b5, #00a0dc); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 15px rgba(0,119,181,0.3);" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" style="width: 3rem; height: 3rem; background: linear-gradient(135deg, #e4405f, #fd5949); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 15px rgba(228,64,95,0.3);" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 1.5rem; color: white; font-weight: 700; font-size: 1.125rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-rocket" style="color: #10b981;"></i> Platform</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <li><a href="index.html" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-home" style="width: 1rem;"></i> Home</a></li>
+                        <li><a href="analysis.html" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-chart-line" style="width: 1rem;"></i> Analysis</a></li>
+                        <li><a href="marketplace.html" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-store" style="width: 1rem;"></i> Marketplace</a></li>
+                        <li><a href="services.html" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-cogs" style="width: 1rem;"></i> Services</a></li>
+                        <li><a href="contact.html" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-envelope" style="width: 1rem;"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 1.5rem; color: white; font-weight: 700; font-size: 1.125rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-brain" style="color: #3b82f6;"></i> Solutions</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-satellite" style="width: 1rem;"></i> Crop Monitoring</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-chart-bar" style="width: 1rem;"></i> Market Intelligence</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-cloud-sun" style="width: 1rem;"></i> Weather Forecasting</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-seedling" style="width: 1rem;"></i> Yield Prediction</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-bug" style="width: 1rem;"></i> Pest Detection</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 1.5rem; color: white; font-weight: 700; font-size: 1.125rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-headset" style="color: #f59e0b;"></i> Support</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-question-circle" style="width: 1rem;"></i> Help Center</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-book" style="width: 1rem;"></i> Documentation</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-code" style="width: 1rem;"></i> API Access</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-graduation-cap" style="width: 1rem;"></i> Training</a></li>
+                        <li><a href="#" style="color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;"><i class="fas fa-users" style="width: 1rem;"></i> Community</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid rgba(148, 163, 184, 0.2); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <p style="margin: 0; color: #64748b; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-copyright" style="color: #10b981;"></i> 2025 Farm Advisory. All rights reserved.</p>
+                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                    <a href="#" style="color: #64748b; text-decoration: none; font-size: 0.875rem; display: flex; align-items: center; gap: 0.25rem;"><i class="fas fa-shield-alt" style="font-size: 0.75rem;"></i> Privacy</a>
+                    <a href="#" style="color: #64748b; text-decoration: none; font-size: 0.875rem; display: flex; align-items: center; gap: 0.25rem;"><i class="fas fa-file-contract" style="font-size: 0.75rem;"></i> Terms</a>
+                    <a href="#" style="color: #64748b; text-decoration: none; font-size: 0.875rem; display: flex; align-items: center; gap: 0.25rem;"><i class="fas fa-cookie-bite" style="font-size: 0.75rem;"></i> Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Join Modal -->
+    <div id="joinModal" class="modal" role="dialog" aria-labelledby="joinModalTitle" aria-hidden="true">
+        <div class="modal__content">
+            <div class="modal__header">
+                <h2 id="joinModalTitle" class="modal__title">Join Farm Advisory</h2>
+                <button class="modal__close" aria-label="Close modal">&times;</button>
+            </div>
+            <form id="joinForm">
+                <div class="form-group">
+                    <label for="joinName" class="form-label">Full Name *</label>
+                    <input type="text" id="joinName" name="name" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="joinEmail" class="form-label">Email Address *</label>
+                    <input type="email" id="joinEmail" name="email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="joinRole" class="form-label">Your Role *</label>
+                    <select id="joinRole" name="role" class="form-select" required>
+                        <option value="">Select your role</option>
+                        <option value="farmer">Farmer</option>
+                        <option value="market">Market Body</option>
+                        <option value="government">Government Official</option>
+                        <option value="researcher">Researcher</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <i class="fas fa-rocket"></i>
+                    Start Free Trial
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./js/main.js"></script>
+    
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</body>
+</html>
