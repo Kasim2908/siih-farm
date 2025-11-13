@@ -33,10 +33,6 @@
                     <button class="theme-toggle" aria-label="Toggle dark mode">
                         <i class="fas fa-moon"></i>
                     </button>
-                    <a href="#" data-modal="join" class="btn btn-primary btn-sm">
-                        <i class="fas fa-user-plus"></i>
-                        Join Us
-                    </a>
                 </div>
                 
                 <button class="header__toggle" aria-label="Toggle navigation">
@@ -150,7 +146,7 @@
                     </div>
 
                     <!-- IoT Sensor Data -->
-                    <div class="card">
+                    <div class="card" data-auth="required" data-role="farmer">
                         <h3 class="card__title">
                             <i class="fas fa-microchip"></i>
                             Real-time IoT Sensors
@@ -451,6 +447,8 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/access-control.js"></script>
     <script src="./js/main.js"></script>
 </body>
 </html>

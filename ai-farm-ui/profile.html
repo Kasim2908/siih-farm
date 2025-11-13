@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - SIIH-FARM</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body data-page="profile">
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <a href="index.html" class="header__logo">
+                    <i class="fas fa-seedling"></i>
+                    <span>SIH-FARM</span>
+                </a>
+                <div class="header__actions"></div>
+            </div>
+        </div>
+    </header>
+
+    <main style="padding: 4rem 0;">
+        <div class="container" style="max-width: 800px;">
+            <div class="card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <h1 style="margin: 0;"><i class="fas fa-user-circle"></i> My Profile</h1>
+                    <button id="editBtn" class="btn btn-primary" onclick="toggleEdit()">
+                        <i class="fas fa-edit"></i> Edit Profile
+                    </button>
+                </div>
+
+                <div id="viewMode">
+                    <div style="display: grid; gap: 1.5rem;">
+                        <div>
+                            <h3 style="color: var(--gray-600); font-size: 0.875rem; margin-bottom: 0.5rem;">Full Name</h3>
+                            <p id="viewName" style="font-size: 1.125rem; font-weight: 600;"></p>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--gray-600); font-size: 0.875rem; margin-bottom: 0.5rem;">Contact Number</h3>
+                            <p id="viewPhone" style="font-size: 1.125rem;"></p>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--gray-600); font-size: 0.875rem; margin-bottom: 0.5rem;">Address</h3>
+                            <p id="viewAddress" style="font-size: 1.125rem;"></p>
+                        </div>
+                        <div id="farmerView" style="display: none;">
+                            <h2 style="margin: 2rem 0 1rem; color: var(--primary);">Farm Details</h2>
+                            <div style="display: grid; gap: 1.5rem;">
+                                <div>
+                                    <h3 style="color: var(--gray-600); font-size: 0.875rem; margin-bottom: 0.5rem;">Land Area</h3>
+                                    <p id="viewLandArea" style="font-size: 1.125rem;"></p>
+                                </div>
+                                <div>
+                                    <h3 style="color: var(--gray-600); font-size: 0.875rem; margin-bottom: 0.5rem;">Crop Type</h3>
+                                    <p id="viewCropType" style="font-size: 1.125rem;"></p>
+                                </div>
+                                <div>
+                                    <h3 style="color: var(--gray-600); font-size: 0.875rem; margin-bottom: 0.5rem;">Region/District</h3>
+                                    <p id="viewRegion" style="font-size: 1.125rem;"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="govView" style="display: none;">
+                            <h2 style="margin: 2rem 0 1rem; color: var(--primary);">Official Details</h2>
+                            <div style="display: grid; gap: 1.5rem;">
+                                <div>
+                                    <h3 style="color: var(--gray-600); font-size: 0.875rem; margin-bottom: 0.5rem;">Department</h3>
+                                    <p id="viewDepartment" style="font-size: 1.125rem;"></p>
+                                </div>
+                                <div>
+                                    <h3 style="color: var(--gray-600); font-size: 0.875rem; margin-bottom: 0.5rem;">Designation</h3>
+                                    <p id="viewDesignation" style="font-size: 1.125rem;"></p>
+                                </div>
+                                <div>
+                                    <h3 style="color: var(--gray-600); font-size: 0.875rem; margin-bottom: 0.5rem;">Region of Responsibility</h3>
+                                    <p id="viewRegionResp" style="font-size: 1.125rem;"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="editMode" style="display: none;">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" id="editName" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Contact Number</label>
+                        <input type="tel" id="editPhone" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Address</label>
+                        <textarea id="editAddress" class="form-input" rows="2" required></textarea>
+                    </div>
+                    <div id="farmerEdit" style="display: none;">
+                        <h3 style="margin: 2rem 0 1rem;">Farm Details</h3>
+                        <div class="form-group">
+                            <label class="form-label">Land Area (in hectares)</label>
+                            <select id="editLandArea" class="form-select">
+                                <option value="">Select land area</option>
+                                <option value="0-1">0-5 hectare</option>
+                                <option value="1-2">5-10 hectares</option>
+                                <option value="2-5">10-15 hectares</option>
+                                <option value="5-10">15-20 hectares</option>
+                                <option value="10+">20+ hectares</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Type of Crop Cultivated</label>
+                            <select id="editCropType" class="form-select">
+                                <option value="">Select crop type</option>
+                                <option value="Wheat">Wheat</option>
+                                <option value="Rice">Rice</option>
+                                <option value="Maize">Maize</option>
+                                <option value="Sugarcane">Sugarcane</option>
+                                <option value="Cotton">Cotton</option>
+                                <option value="Pulses">Pulses</option>
+                                <option value="Vegetables">Vegetables</option>
+                                <option value="Fruits">Fruits</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Region/District</label>
+                            <select id="editRegion" class="form-select">
+                                <option value="">Select region</option>
+                                <option value="North India">North India</option>
+                                <option value="South India">South India</option>
+                                <option value="East India">East India</option>
+                                <option value="West India">West India</option>
+                                <option value="Central India">Central India</option>
+                                <option value="Northeast India">Northeast India</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="govEdit" style="display: none;">
+                        <h3 style="margin: 2rem 0 1rem;">Official Details</h3>
+                        <div class="form-group">
+                            <label class="form-label">Department Name</label>
+                            <input type="text" id="editDepartment" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Designation</label>
+                            <input type="text" id="editDesignation" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Region of Responsibility</label>
+                            <input type="text" id="editRegionResp" class="form-input">
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Save Changes
+                        </button>
+                        <button type="button" class="btn btn-outline" onclick="toggleEdit()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="./js/auth.js"></script>
+    <script src="./js/access-control.js"></script>
+    <script>
+        const session = AuthSystem.getSession();
+        if (!session) window.location.href = 'login.html';
+
+        const profile = JSON.parse(localStorage.getItem('userProfile') || '{}');
+        const role = session.role;
+
+        function loadProfile() {
+            document.getElementById('viewName').textContent = profile.fullName || '';
+            document.getElementById('viewPhone').textContent = profile.phone || '';
+            document.getElementById('viewAddress').textContent = profile.address || '';
+
+            if (role === 'farmer') {
+                document.getElementById('farmerView').style.display = 'block';
+                document.getElementById('viewLandArea').textContent = profile.landArea ? profile.landArea + ' hectares' : '';
+                document.getElementById('viewCropType').textContent = profile.cropType || '';
+                document.getElementById('viewRegion').textContent = profile.region || '';
+            } else if (role === 'government') {
+                document.getElementById('govView').style.display = 'block';
+                document.getElementById('viewDepartment').textContent = profile.department || '';
+                document.getElementById('viewDesignation').textContent = profile.designation || '';
+                document.getElementById('viewRegionResp').textContent = profile.regionResponsibility || '';
+            }
+        }
+
+        function toggleEdit() {
+            const viewMode = document.getElementById('viewMode');
+            const editMode = document.getElementById('editMode');
+            const editBtn = document.getElementById('editBtn');
+
+            if (viewMode.style.display === 'none') {
+                viewMode.style.display = 'block';
+                editMode.style.display = 'none';
+                editBtn.style.display = 'block';
+            } else {
+                document.getElementById('editName').value = profile.fullName || '';
+                document.getElementById('editPhone').value = profile.phone || '';
+                document.getElementById('editAddress').value = profile.address || '';
+
+                if (role === 'farmer') {
+                    document.getElementById('farmerEdit').style.display = 'block';
+                    document.getElementById('editLandArea').value = profile.landArea || '';
+                    document.getElementById('editCropType').value = profile.cropType || '';
+                    document.getElementById('editRegion').value = profile.region || '';
+                } else if (role === 'government') {
+                    document.getElementById('govEdit').style.display = 'block';
+                    document.getElementById('editDepartment').value = profile.department || '';
+                    document.getElementById('editDesignation').value = profile.designation || '';
+                    document.getElementById('editRegionResp').value = profile.regionResponsibility || '';
+                }
+
+                viewMode.style.display = 'none';
+                editMode.style.display = 'block';
+                editBtn.style.display = 'none';
+            }
+        }
+
+        document.getElementById('editMode').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            profile.fullName = document.getElementById('editName').value;
+            profile.phone = document.getElementById('editPhone').value;
+            profile.address = document.getElementById('editAddress').value;
+
+            if (role === 'farmer') {
+                profile.landArea = document.getElementById('editLandArea').value;
+                profile.cropType = document.getElementById('editCropType').value;
+                profile.region = document.getElementById('editRegion').value;
+            } else if (role === 'government') {
+                profile.department = document.getElementById('editDepartment').value;
+                profile.designation = document.getElementById('editDesignation').value;
+                profile.regionResponsibility = document.getElementById('editRegionResp').value;
+            }
+
+            localStorage.setItem('userProfile', JSON.stringify(profile));
+            alert('Profile updated successfully!');
+            loadProfile();
+            toggleEdit();
+        });
+
+        loadProfile();
+    </script>
+</body>
+</html>

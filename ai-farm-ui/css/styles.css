@@ -1284,3 +1284,87 @@ p {
 .toast.error { border-left-color: var(--error); }
 .toast.warning { border-left-color: var(--warning); }
 .toast.info { border-left-color: var(--info); }
+button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+/* Download Section (Bottom) */
+.download-section {
+  background-color: #0b1120; /* same dark tone as footer */
+  text-align: center;
+  padding: 50px 20px;
+  color: #e0e0e0;
+}
+
+/* Heading */
+.download-section h3 {
+  color: #00ff9d; /* bright green accent (like your brand color) */
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* Paragraph */
+.download-section p {
+  color: #a0aab8;
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+/* Download Button */
+.download-section button {
+  background: linear-gradient(90deg, #00c853, #00e676);
+  color: white;
+  font-weight: 600;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+/* --- Download Section --- */
+.download-section {
+  background: #ffffff; /* Always white background */
+  color: #111827; /* Dark readable text */
+  text-align: center;
+  padding: 70px 20px;
+  transition: all 0.3s ease;
+  border-top: 1px solid rgba(0, 0, 0, 0.1); /* subtle separator */
+}
+
+/* Title */
+.download-section h2 {
+  color: #15803d; /* Dark green accent */
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* Description */
+.download-section p {
+  color: #374151;
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+/* Download Button */
+.download-btn {
+  background: #22c55e; /* Farm Advisory green */
+  color: #ffffff;
+  padding: 14px 34px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+.download-btn:hover {
+  background: #15803d; /* darker green hover */
+  transform: scale(1.05);
+}
+
+
+
+

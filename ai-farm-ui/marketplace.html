@@ -32,10 +32,6 @@
                     <button class="theme-toggle" aria-label="Toggle dark mode">
                         <i class="fas fa-moon"></i>
                     </button>
-                    <a href="#" data-modal="join" class="btn btn-primary btn-sm">
-                        <i class="fas fa-user-plus"></i>
-                        Join Us
-                    </a>
                 </div>
                 
                 <button class="header__toggle" aria-label="Toggle navigation">
@@ -82,10 +78,61 @@
             </div>
         </section>
 
-        <!-- Filters Section -->
         <section class="section">
             <div class="container">
-                <div class="marketplace-filters">
+                <!-- AI Crop Recommendation Section -->
+                <div class="card mt-8" data-auth="required" data-role="farmer" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white;">
+                    <h2 style="color: white; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-brain"></i> AI Crop Recommendation
+                    </h2>
+                    <div class="grid grid-3" style="gap: 1rem;">
+                        <div class="form-group mb-0">
+                            <label style="color: white; opacity: 0.9;">Region</label>
+                            <select id="aiRegion" class="form-select">
+                                <option value="north">North India</option>
+                                <option value="south">South India</option>
+                                <option value="east">East India</option>
+                                <option value="west">West India</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-0">
+                            <label style="color: white; opacity: 0.9;">Season</label>
+                            <select id="aiSeason" class="form-select">
+                                <option value="kharif">Kharif (Jun-Oct)</option>
+                                <option value="rabi">Rabi (Nov-Mar)</option>
+                                <option value="zaid">Zaid (Mar-Jun)</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-0">
+                            <label style="color: white; opacity: 0.9;">Crop Category</label>
+                            <select id="aiCategory" class="form-select">
+                                <option value="all">All Crops</option>
+                                <option value="cereals">Cereals</option>
+                                <option value="pulses">Pulses</option>
+                                <option value="cash">Cash Crops</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Recommendations -->
+                <div id="aiRecommendations" class="grid grid-3 mt-8" data-auth="required" data-role="farmer"></div>
+
+                <!-- Price Trend with Prediction -->
+                <div class="card mt-8" data-auth="required" data-role="farmer">
+                    <h3 style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-chart-line"></i> Price Trend & AI Prediction
+                    </h3>
+                    <div style="height: 400px;">
+                        <canvas id="aiPredictionChart"></canvas>
+                    </div>
+                    <div style="margin-top: 1rem; padding: 1rem; background: #10b98110; border-left: 4px solid #10b981; border-radius: 0.5rem;">
+                        <p style="margin: 0; color: var(--gray-700);"><strong>AI Insight:</strong> Based on historical data, weather patterns, and market trends, wheat prices are expected to rise by 12-15% in the next 3 months due to increased demand and favorable growing conditions.</p>
+                    </div>
+                </div>
+
+                <!-- Market Filters -->
+                <div class="marketplace-filters mt-8">
                     <h3 style="margin-bottom: var(--space-6); color: var(--gray-900);">Market Filters</h3>
                     <div class="grid grid-4">
                         <div class="form-group mb-0">
@@ -97,7 +144,6 @@
                                 <option value="sugarcane">Sugarcane</option>
                             </select>
                         </div>
-                        
                         <div class="form-group mb-0">
                             <label for="regionFilter" class="form-label" style="color: var(--gray-700);">Region</label>
                             <select id="regionFilter" class="form-select">
@@ -108,7 +154,6 @@
                                 <option value="east">East India</option>
                             </select>
                         </div>
-                        
                         <div class="form-group mb-0">
                             <label for="priceRange" class="form-label" style="color: var(--gray-700);">Price Range</label>
                             <select id="priceRange" class="form-select">
@@ -118,7 +163,6 @@
                                 <option value="high">₹3000+</option>
                             </select>
                         </div>
-                        
                         <div class="form-group mb-0">
                             <label for="timeframe" class="form-label" style="color: var(--gray-700);">Timeframe</label>
                             <select id="timeframe" class="form-select">
@@ -132,7 +176,7 @@
                 </div>
 
                 <!-- Charts Section -->
-                <div class="grid grid-2 mt-8">
+                <div class="grid grid-2 mt-8" data-auth="required" data-role="farmer">
                     <div class="card">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6);">
                             <h3 style="color: var(--gray-900); font-weight: 700;">Price Trends</h3>
@@ -167,7 +211,7 @@
                 </div>
 
                 <!-- Vendor Listings -->
-                <div class="card mt-8">
+                <div class="card mt-8" data-auth="required" data-role="farmer">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6);">
                         <h3 style="color: var(--gray-900); font-weight: 700;">
                             <i class="fas fa-store"></i>
@@ -441,6 +485,8 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/access-control.js"></script>
     <script src="./js/main.js"></script>
     
     <script>
@@ -470,8 +516,147 @@
             }
         };
 
+        // Crop recommendations data
+        const cropData = {
+            north: {
+                kharif: { cereals: [{name:'Rice',price:3200,trend:18},{name:'Maize',price:1950,trend:12},{name:'Bajra',price:2100,trend:8}], pulses: [{name:'Moong',price:7500,trend:20},{name:'Urad',price:6800,trend:15},{name:'Arhar',price:6200,trend:10}], cash: [{name:'Cotton',price:5800,trend:14},{name:'Sugarcane',price:3100,trend:9},{name:'Groundnut',price:5200,trend:11}] },
+                rabi: { cereals: [{name:'Wheat',price:2650,trend:15},{name:'Barley',price:1750,trend:10},{name:'Oats',price:2200,trend:7}], pulses: [{name:'Chickpea',price:5200,trend:12},{name:'Lentil',price:6500,trend:16},{name:'Peas',price:4800,trend:9}], cash: [{name:'Mustard',price:5500,trend:13},{name:'Sunflower',price:6200,trend:11},{name:'Potato',price:1200,trend:8}] },
+                zaid: { cereals: [{name:'Maize',price:1850,trend:8},{name:'Rice',price:3100,trend:10},{name:'Jowar',price:2400,trend:6}], pulses: [{name:'Moong',price:7200,trend:14},{name:'Urad',price:6500,trend:11},{name:'Cowpea',price:5800,trend:9}], cash: [{name:'Cucumber',price:2500,trend:12},{name:'Watermelon',price:1800,trend:15},{name:'Muskmelon',price:2200,trend:10}] }
+            },
+            south: {
+                kharif: { cereals: [{name:'Rice',price:3400,trend:20},{name:'Ragi',price:3800,trend:16},{name:'Jowar',price:2600,trend:11}], pulses: [{name:'Redgram',price:6500,trend:18},{name:'Greengram',price:7200,trend:14},{name:'Blackgram',price:6800,trend:12}], cash: [{name:'Cotton',price:6000,trend:15},{name:'Groundnut',price:5500,trend:13},{name:'Castor',price:5800,trend:10}] },
+                rabi: { cereals: [{name:'Maize',price:2000,trend:12},{name:'Wheat',price:2500,trend:9},{name:'Barley',price:1900,trend:7}], pulses: [{name:'Chickpea',price:5400,trend:14},{name:'Lentil',price:6700,trend:17},{name:'Horsegram',price:4200,trend:8}], cash: [{name:'Sunflower',price:6400,trend:12},{name:'Safflower',price:5200,trend:10},{name:'Coriander',price:8500,trend:16}] },
+                zaid: { cereals: [{name:'Rice',price:3200,trend:11},{name:'Maize',price:1900,trend:9},{name:'Ragi',price:3600,trend:13}], pulses: [{name:'Greengram',price:7000,trend:15},{name:'Blackgram',price:6600,trend:12},{name:'Cowpea',price:5600,trend:10}], cash: [{name:'Vegetables',price:3500,trend:18},{name:'Cucumber',price:2600,trend:14},{name:'Bitter gourd',price:4200,trend:11}] }
+            },
+            east: {
+                kharif: { cereals: [{name:'Rice',price:3300,trend:19},{name:'Maize',price:2100,trend:13},{name:'Finger millet',price:3500,trend:10}], pulses: [{name:'Arhar',price:6400,trend:17},{name:'Moong',price:7400,trend:15},{name:'Urad',price:6900,trend:13}], cash: [{name:'Jute',price:4500,trend:16},{name:'Sugarcane',price:3200,trend:11},{name:'Groundnut',price:5300,trend:12}] },
+                rabi: { cereals: [{name:'Wheat',price:2550,trend:13},{name:'Barley',price:1800,trend:9},{name:'Maize',price:1950,trend:11}], pulses: [{name:'Lentil',price:6600,trend:18},{name:'Chickpea',price:5300,trend:14},{name:'Peas',price:4900,trend:10}], cash: [{name:'Mustard',price:5600,trend:15},{name:'Potato',price:1300,trend:12},{name:'Tomato',price:2800,trend:9}] },
+                zaid: { cereals: [{name:'Rice',price:3150,trend:10},{name:'Maize',price:1900,trend:8},{name:'Jowar',price:2500,trend:7}], pulses: [{name:'Moong',price:7300,trend:16},{name:'Urad',price:6700,trend:13},{name:'Cowpea',price:5900,trend:11}], cash: [{name:'Vegetables',price:3200,trend:17},{name:'Cucumber',price:2400,trend:13},{name:'Pumpkin',price:1800,trend:10}] }
+            },
+            west: {
+                kharif: { cereals: [{name:'Bajra',price:2300,trend:14},{name:'Jowar',price:2700,trend:12},{name:'Maize',price:2050,trend:10}], pulses: [{name:'Moong',price:7600,trend:19},{name:'Urad',price:7000,trend:16},{name:'Moth bean',price:5500,trend:11}], cash: [{name:'Cotton',price:6200,trend:17},{name:'Groundnut',price:5600,trend:14},{name:'Soybean',price:4200,trend:12}] },
+                rabi: { cereals: [{name:'Wheat',price:2700,trend:16},{name:'Barley',price:1850,trend:11},{name:'Gram',price:5100,trend:13}], pulses: [{name:'Chickpea',price:5500,trend:15},{name:'Lentil',price:6800,trend:18},{name:'Peas',price:5000,trend:12}], cash: [{name:'Mustard',price:5700,trend:14},{name:'Cumin',price:18500,trend:20},{name:'Fennel',price:12000,trend:16}] },
+                zaid: { cereals: [{name:'Maize',price:1950,trend:9},{name:'Bajra',price:2200,trend:8},{name:'Jowar',price:2600,trend:7}], pulses: [{name:'Moong',price:7500,trend:17},{name:'Urad',price:6900,trend:14},{name:'Cowpea',price:6000,trend:12}], cash: [{name:'Vegetables',price:3400,trend:19},{name:'Watermelon',price:1900,trend:16},{name:'Muskmelon',price:2300,trend:13}] }
+            }
+        };
+
+        let predictionChart = null;
+
+        function updateRecommendations() {
+            const region = document.getElementById('aiRegion').value;
+            const season = document.getElementById('aiSeason').value;
+            const category = document.getElementById('aiCategory').value;
+            
+            let crops = [];
+            if (category === 'all') {
+                crops = [...cropData[region][season].cereals, ...cropData[region][season].pulses, ...cropData[region][season].cash];
+            } else {
+                crops = cropData[region][season][category];
+            }
+            
+            crops.sort((a,b) => b.trend - a.trend);
+            const top3 = crops.slice(0, 3);
+            const colors = ['#10b981', '#0ea5e9', '#f59e0b'];
+            
+            const html = top3.map((crop, i) => `
+                <div class="card" style="border: 2px solid ${colors[i]};">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="width: 3rem; height: 3rem; background: ${colors[i]}; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.25rem;">${i+1}</div>
+                        <h3 style="margin: 0; color: ${colors[i]};">${crop.name}</h3>
+                    </div>
+                    <div style="background: ${colors[i]}10; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem;">
+                        <p style="margin: 0; font-weight: 600; color: ${colors[i]};">${crop.trend > 15 ? 'High' : crop.trend > 10 ? 'Moderate' : 'Stable'} demand expected — ${crop.trend > 15 ? 'Recommended' : 'Good option'} for next season</p>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="color: var(--gray-600);">Expected Price:</span>
+                        <span style="font-weight: 700; color: ${colors[i]};">₹${crop.price}/quintal</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: var(--gray-600);">Demand Trend:</span>
+                        <span style="font-weight: 700; color: ${colors[i]};">↑ ${crop.trend}%</span>
+                    </div>
+                </div>
+            `).join('');
+            
+            document.getElementById('aiRecommendations').innerHTML = html;
+            updatePredictionChart(top3[0]);
+        }
+
+        function updatePredictionChart(topCrop) {
+            const basePrice = topCrop.price;
+            const trend = topCrop.trend;
+            const historical = [
+                basePrice * 0.85, basePrice * 0.88, basePrice * 0.82, 
+                basePrice * 0.90, basePrice * 0.95, basePrice * 0.93, basePrice
+            ];
+            const predicted = [
+                basePrice * (1 + trend/300),
+                basePrice * (1 + trend/200),
+                basePrice * (1 + trend/100)
+            ];
+
+            const ctx = document.getElementById('aiPredictionChart');
+            if (predictionChart) predictionChart.destroy();
+            
+            const gradient = ctx.getContext('2d').createLinearGradient(0, 0, 0, 350);
+            gradient.addColorStop(0, 'rgba(16, 185, 129, 0.3)');
+            gradient.addColorStop(1, 'rgba(16, 185, 129, 0.05)');
+            
+            predictionChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug (P)', 'Sep (P)', 'Oct (P)'],
+                    datasets: [{
+                        label: 'Historical Price',
+                        data: [...historical, null, null, null],
+                        borderColor: '#059669',
+                        backgroundColor: gradient,
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 3
+                    }, {
+                        label: 'AI Predicted Price',
+                        data: [null, null, null, null, null, null, historical[6], ...predicted],
+                        borderColor: '#f59e0b',
+                        borderDash: [5, 5],
+                        fill: false,
+                        tension: 0.4,
+                        borderWidth: 3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: true, position: 'top' },
+                        tooltip: {
+                            backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ₹' + Math.round(context.parsed.y);
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            ticks: {
+                                callback: function(value) { return '₹' + Math.round(value); }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
         // Initialize charts when page loads
         document.addEventListener('DOMContentLoaded', function() {
+            updateRecommendations();
+            document.getElementById('aiRegion').addEventListener('change', updateRecommendations);
+            document.getElementById('aiSeason').addEventListener('change', updateRecommendations);
+            document.getElementById('aiCategory').addEventListener('change', updateRecommendations);
+
             // Price Chart with fixed configuration
             const priceCtx = document.getElementById('priceChart');
             if (priceCtx) {

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Your Profile - SIIH-FARM</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: 2rem;">
+        <div class="card" style="max-width: 600px; width: 100%;">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <i class="fas fa-user-circle" style="font-size: 3rem; color: var(--primary);"></i>
+                <h1 style="margin-top: 1rem; font-size: 1.75rem;">Complete Your Profile</h1>
+                <p style="color: var(--gray-600);" id="roleText">Setup your profile</p>
+            </div>
+            
+            <form id="profileForm">
+                <div class="form-group">
+                    <label for="fullName" class="form-label">Full Name</label>
+                    <input type="text" id="fullName" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone" class="form-label">Contact Number</label>
+                    <input type="tel" id="phone" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address" class="form-label">Address</label>
+                    <textarea id="address" class="form-input" rows="2" required placeholder="Enter your complete address"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="photo" class="form-label">Profile Photo (Optional)</label>
+                    <input type="file" id="photo" class="form-input" accept="image/*">
+                </div>
+                
+                <div id="farmerFields" style="display: none;">
+                    <h3 style="margin: 2rem 0 1rem; color: var(--gray-900);">Farm Details</h3>
+                    <div class="form-group">
+                        <label for="landArea" class="form-label">Land Area (in hectares)</label>
+                        <select id="landArea" class="form-select">
+                            <option value="">Select land area</option>
+                            <option value="0-1">0-1 hectare</option>
+                            <option value="1-2">1-2 hectares</option>
+                            <option value="2-5">2-5 hectares</option>
+                            <option value="5-10">5-10 hectares</option>
+                            <option value="10+">10+ hectares</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cropType" class="form-label">Type of Crop Cultivated</label>
+                        <select id="cropType" class="form-select">
+                            <option value="">Select crop type</option>
+                            <option value="Wheat">Wheat</option>
+                            <option value="Rice">Rice</option>
+                            <option value="Maize">Maize</option>
+                            <option value="Sugarcane">Sugarcane</option>
+                            <option value="Cotton">Cotton</option>
+                            <option value="Pulses">Pulses</option>
+                            <option value="Vegetables">Vegetables</option>
+                            <option value="Fruits">Fruits</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="region" class="form-label">Region/District</label>
+                        <select id="region" class="form-select">
+                            <option value="">Select region</option>
+                            <option value="North India">North India</option>
+                            <option value="South India">South India</option>
+                            <option value="East India">East India</option>
+                            <option value="West India">West India</option>
+                            <option value="Central India">Central India</option>
+                            <option value="Northeast India">Northeast India</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="governmentFields" style="display: none;">
+                    <h3 style="margin: 2rem 0 1rem; color: var(--gray-900);">Official Details</h3>
+                    <div class="form-group">
+                        <label for="department" class="form-label">Department Name</label>
+                        <input type="text" id="department" class="form-input" placeholder="e.g., Agriculture Department">
+                    </div>
+                    <div class="form-group">
+                        <label for="designation" class="form-label">Designation</label>
+                        <input type="text" id="designation" class="form-input" placeholder="e.g., Agricultural Officer">
+                    </div>
+                    <div class="form-group">
+                        <label for="regionResponsibility" class="form-label">Region of Responsibility</label>
+                        <input type="text" id="regionResponsibility" class="form-input" placeholder="e.g., North District">
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 2rem;">
+                    <i class="fas fa-check"></i> Complete Profile
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="./js/auth.js"></script>
+    <script>
+        const session = AuthSystem.getSession();
+        if (!session) window.location.href = 'login.html';
+
+        const role = session.role;
+        document.getElementById('fullName').value = session.name;
+        document.getElementById('roleText').textContent = `Setup your ${role} profile`;
+
+        if (role === 'farmer') {
+            document.getElementById('farmerFields').style.display = 'block';
+        } else if (role === 'government') {
+            document.getElementById('governmentFields').style.display = 'block';
+        }
+
+        document.getElementById('profileForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const profileData = {
+                fullName: document.getElementById('fullName').value,
+                phone: document.getElementById('phone').value,
+                address: document.getElementById('address').value,
+                role: role
+            };
+
+            if (role === 'farmer') {
+                profileData.landArea = document.getElementById('landArea').value;
+                profileData.cropType = document.getElementById('cropType').value;
+                profileData.region = document.getElementById('region').value;
+            } else if (role === 'government') {
+                profileData.department = document.getElementById('department').value;
+                profileData.designation = document.getElementById('designation').value;
+                profileData.regionResponsibility = document.getElementById('regionResponsibility').value;
+            }
+
+            localStorage.setItem('userProfile', JSON.stringify(profileData));
+            session.profileComplete = true;
+            localStorage.setItem('userSession', JSON.stringify(session));
+
+            alert('Profile completed successfully!');
+            window.location.href = role === 'government' ? 'admin.html' : 'index.html';
+        });
+    </script>
+</body>
+</html>
