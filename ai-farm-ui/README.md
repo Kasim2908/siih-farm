@@ -25,7 +25,7 @@ An intelligent agricultural platform that empowers farmers with AI-driven crop r
 
 ## 🎯 Overview
 
-SIIH-FARM is a comprehensive agricultural platform designed to bridge the gap between farmers, government officials, and modern technology. The platform provides:
+SIH-FARM is a comprehensive agricultural platform designed to bridge the gap between farmers, government officials, and modern technology. The platform provides:
 
 - **AI-Powered Crop Recommendations** based on region, season, and market trends
 - **Real-Time Market Intelligence** with price predictions
