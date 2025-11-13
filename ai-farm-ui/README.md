@@ -1,4 +1,4 @@
-# SIIH-FARM Platform 🌾
+# SIH-FARM Platform 🌾
 
 **Smart India Hackathon 2025 Project**
 
